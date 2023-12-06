@@ -1,0 +1,50 @@
+<div class="cart-item">
+    <div class="item-img">
+        <a href="#">
+            <img 
+                [src]="productCart.image" 
+                alt="Commodo Blown Lamp" />
+        </a>
+        <button 
+            class="close-btn" 
+            (click)="deleteProductCart(productCart.id)">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <div class="item-content">
+
+        <app-rating-star></app-rating-star>
+
+        <h3 class="item-title">
+            <a href="#">{{ productCart.name }}</a>
+        </h3>
+
+        <div class="item-price">
+            <span class="currency-symbol">
+                $
+            </span>
+                {{ productCart.price }}
+        </div>
+
+        <div class="pro-qty item-quantity">
+            
+            <button 
+                class="dec qtybtn" 
+                (click)="decrementQuantityProductCart(productCart.id)">
+                -
+            </button>
+            <input 
+                type="number" 
+                class="quantity-input" 
+                [value]="productCart.quantity" />
+
+            <button 
+                class="inc qtybtn" 
+                (click)="incrementQuantityProductCart(productCart.id)">
+                +
+            </button>
+        </div>
+
+    </div>
+</div>

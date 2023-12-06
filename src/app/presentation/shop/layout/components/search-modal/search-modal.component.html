@@ -1,0 +1,64 @@
+<div [ngClass]="['header-search-modal', viewSearchModal ? 'open' : '']">
+
+    <button class="card-close sidebar-close" (click)="closeSearchModal()">
+        <i class="align-middle fas fa-times"></i>
+    </button>
+
+    <div class="header-search-wrap">
+
+        <div class="card-header">
+
+            <div class="input-group">
+                <input type="search" class="form-control" name="prod-search" id="prod-search"
+                    placeholder="Write Something...." [formControl]="inputSearch">
+
+                <button type="submit" class="axil-btn btn-bg-primary">
+                    <i class="far fa-search"></i>
+                </button>
+            </div>
+
+            <div *ngIf="products.length" class="search-result-header">
+                <h6 class="title">{{products.length}} resultados</h6>
+            </div>
+
+        </div>
+
+        <div class="card-body">
+            <div class="psearch-results">
+                <div *ngFor="let product of products" class="axil-product-list">
+
+                    <div class="item-img">
+                        <a href="single-product.html">
+                            <img [src]="product.images[0]" alt="Yantiti Leather Bags">
+                        </a>
+                    </div>
+
+                    <div class="product-content">
+
+                        <app-rating-star></app-rating-star>
+
+                        <h6 class="product-title">
+                            <a href="single-product.html">{{product.name}}</a>
+                        </h6>
+
+                        <div class="product-price-variant">
+                            <span class="price current-price">S/.{{product.price}}</span>
+                            <span class="price old-price">S/.{{product.priceAfter}}</span>
+                        </div>
+
+                        <div class="product-cart">
+                            <a class="cart-btn" (click)="registerProductCart(product)">
+                                <i class="fal fa-shopping-cart"></i>
+                            </a>
+                            <a href="wishlist.html" class="cart-btn">
+                                <i class="fal fa-heart"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

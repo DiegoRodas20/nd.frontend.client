@@ -1,0 +1,27 @@
+.cartmini {
+
+    &__area {
+
+        width: 580px;
+        right: calc(-100% + 80px);
+
+        @media only screen and (max-width: 479px) {
+            width: 390px;
+        }
+
+        &.cartmini-opened {
+            right: 0;
+        }
+    }
+
+    &__wrapper {
+        padding-left: 3rem;
+        padding-right: 3rem;
+        padding-top: 1rem;
+
+        @media only screen and (max-width: 479px) {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+    }
+}

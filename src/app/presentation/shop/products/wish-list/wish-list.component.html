@@ -1,0 +1,93 @@
+<section class="tp-cart-area pb-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+
+                <div *ngIf="productsWishlist.length" class="tp-cart-list mb-45 mr-30">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="tp-cart-header-product"></th>
+                                <th colspan="2" class="tp-cart-header-product">Product</th>
+                                <th class="tp-cart-header-price">Price</th>
+                                <th class="tp-cart-header-price">Stock Status</th>
+                                <th class="tp-cart-header-quantity">Quantity</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr [@slideFadeLeft] *ngFor="let product of productsWishlist">
+
+                                <!-- Delete product to wishlist -->
+                                <td class="tp-product-remove">
+                                    <button class="remove-wishlist" (click)="deleteProductWishlist(product.id)">
+                                        <i class="fal fa-times"></i>
+                                    </button>
+                                </td>
+
+                                <!-- Image -->
+                                <td class="tp-cart-img">
+                                    <a href="product-details.html">
+                                        <img [src]="product.image" alt="">
+                                    </a>
+                                </td>
+
+                                <!-- Name -->
+                                <td class="tp-cart-title">
+                                    <a href="product-details.html">{{product.name}}</a>
+                                </td>
+
+                                <!-- Price -->
+                                <td class="tp-cart-price">
+                                    <span>{{product.price}}</span>
+                                </td>
+
+                                <!-- Stock Status -->
+                                <td class="tp-cart-status">
+                                    <span>Disponible</span>
+                                </td>
+
+                                <!-- Quantity -->
+                                <td class="tp-cart-quantity">
+                                    <div class="tp-product-quantity mt-10 mb-10">
+                                        <span class="tp-cart-minus">
+                                            <svg width="10" height="2" viewBox="0 0 10 2" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 1H9" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                        <input class="tp-cart-input" type="text" [value]="product.quantity">
+                                        <span class="tp-cart-plus">
+                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5 1V9" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M1 5H9" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </td>
+
+                                <!-- Register product in cart -->
+                                <td class="tp-cart-add-to-cart text-center">
+                                    <button type="submit" class="tp-btn tp-btn-2 tp-btn-blue"
+                                        (click)="registerProductCart(product)">
+                                        Add To Cart
+                                    </button>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <ng-container *ngIf="!productsWishlist.length">
+                    <app-product-empty [name]="'Wishlist'"></app-product-empty>
+                </ng-container>
+
+            </div>
+        </div>
+    </div>
+</section>

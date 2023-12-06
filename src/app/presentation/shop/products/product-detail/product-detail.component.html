@@ -1,0 +1,168 @@
+<section class="tp-product-details-area">
+    <div class="tp-product-details-top pb-115">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xl-7 col-lg-6">
+                    <div class="tp-product-details-thumb-wrapper tp-tab d-sm-flex">
+                        <nav>
+                            <div class="nav nav-tabs flex-sm-column " id="productDetailsNavThumb" role="tablist">
+                                <button class="nav-link active" id="nav-1-tab" data-bs-toggle="tab"
+                                    data-bs-target="#nav-1" type="button" role="tab" aria-controls="nav-1"
+                                    aria-selected="true">
+                                    <img [src]="product.images[0]" alt="">
+                                </button>
+                                <button class="nav-link" id="nav-2-tab" data-bs-toggle="tab" data-bs-target="#nav-2"
+                                    type="button" role="tab" aria-controls="nav-2" aria-selected="false">
+                                    <img src="assets/img/product/details/nav/product-details-nav-2.jpg" alt="">
+                                </button>
+                                <button class="nav-link" id="nav-3-tab" data-bs-toggle="tab" data-bs-target="#nav-3"
+                                    type="button" role="tab" aria-controls="nav-3" aria-selected="false">
+                                    <img src="assets/img/product/details/nav/product-details-nav-3.jpg" alt="">
+                                </button>
+                                <button class="nav-link" id="nav-4-tab" data-bs-toggle="tab" data-bs-target="#nav-4"
+                                    type="button" role="tab" aria-controls="nav-4" aria-selected="false">
+                                    <img src="assets/img/product/details/nav/product-details-nav-4.jpg" alt="">
+                                </button>
+                                <button class="nav-link" id="nav-5-tab" data-bs-toggle="tab" data-bs-target="#nav-5"
+                                    type="button" role="tab" aria-controls="nav-5" aria-selected="false">
+                                    <img src="assets/img/product/details/nav/product-details-nav-5.jpg" alt="">
+                                </button>
+                            </div>
+                        </nav>
+
+                        <div class="tab-content m-img" id="productDetailsNavContent">
+                            <div class="tab-pane fade show active" id="nav-1" role="tabpanel"
+                                aria-labelledby="nav-1-tab" tabindex="0">
+                                <div class="tp-product-details-nav-main-thumb">
+                                    <img [src]="product.images[0]" alt="">
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab"
+                                tabindex="0">
+                                <div class="tp-product-details-nav-main-thumb">
+                                    <img src="assets/img/product/details/main/product-details-main-2.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab"
+                                tabindex="0">
+                                <div class="tp-product-details-nav-main-thumb">
+                                    <img src="assets/img/product/details/main/product-details-main-3.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-4" role="tabpanel" aria-labelledby="nav-4-tab"
+                                tabindex="0">
+                                <div class="tp-product-details-nav-main-thumb">
+                                    <img src="assets/img/product/details/main/product-details-main-4.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-5" role="tabpanel" aria-labelledby="nav-5-tab"
+                                tabindex="0">
+                                <div class="tp-product-details-nav-main-thumb">
+                                    <img src="assets/img/product/details/main/product-details-main-5.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-xl-5 col-lg-6">
+                    <div class="tp-product-details-wrapper">
+                        <div class="tp-product-details-category">
+                            <span>{{product.category}}</span>
+                        </div>
+                        <h3 class="tp-product-details-title">{{product.name}}</h3>
+
+                        <!-- inventory details -->
+                        <div class="tp-product-details-inventory d-flex align-items-center mb-10">
+                            <div class="tp-product-details-stock mb-10">
+                                <span>In Stock</span>
+                            </div>
+                            <div class="tp-product-details-rating-wrapper d-flex align-items-center mb-10">
+                                <div class="tp-product-details-rating">
+                                    <span><i class="fa-solid fa-star"></i></span>
+                                    <span><i class="fa-solid fa-star"></i></span>
+                                    <span><i class="fa-solid fa-star"></i></span>
+                                    <span><i class="fa-solid fa-star"></i></span>
+                                    <span><i class="fa-solid fa-star"></i></span>
+                                </div>
+                                <div class="tp-product-details-reviews">
+                                    <span>(36 Reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Descripcion de producto</p>
+
+                        <!-- Price Product -->
+                        <div class="tp-product-details-price-wrapper mb-20">
+                            <span class="tp-product-details-price new-price">${{product.price}} </span>
+                            <span class="tp-product-details-price old-price">${{product.priceAfter}}</span>
+                        </div>
+
+                        <!-- Options -->
+                        <div class="tp-product-details-action-wrapper">
+                            <h3 class="tp-product-details-action-title">Quantity</h3>
+                            <div class="tp-product-details-action-item-wrapper d-flex align-items-center">
+                                <div class="tp-product-details-quantity">
+                                    <div class="tp-product-quantity mb-15 mr-15">
+                                        <span class="tp-cart-minus">
+                                            <svg width="11" height="2" viewBox="0 0 11 2" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 1H10" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                        <input class="tp-cart-input" type="text" value="1">
+                                        <span class="tp-cart-plus">
+                                            <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 6H10" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M5.5 10.5V1.5" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="tp-product-details-add-to-cart mb-15 w-100">
+                                    <button class="tp-product-details-add-to-cart-btn w-100"
+                                        (click)="registerProductCart()">Add To Cart</button>
+                                </div>
+                            </div>
+                            <button class="tp-product-details-buy-now-btn w-100">Buy Now</button>
+                        </div>
+
+                        <div class="tp-product-details-query">
+                            <div class="tp-product-details-query-item d-flex align-items-center">
+                                <span>SKU: </span>
+                                <p>NTB7SDVX44</p>
+                            </div>
+                            <div class="tp-product-details-query-item d-flex align-items-center">
+                                <span>Category: </span>
+                                <p>{{product.category}}</p>
+                            </div>
+                            <div class="tp-product-details-query-item d-flex align-items-center">
+                                <span>Tag: </span>
+                                <p>Android</p>
+                            </div>
+                        </div>
+                        <div class="tp-product-details-social">
+                            <span>Share: </span>
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-vimeo-v"></i></a>
+                        </div>
+                        <div
+                            class="tp-product-details-payment d-flex align-items-center flex-wrap justify-content-between">
+                            <p>Guaranteed safe <br> & secure checkout</p>
+                            <img src="assets/img/product/icons/payment-option.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

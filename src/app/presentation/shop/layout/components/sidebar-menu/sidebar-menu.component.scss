@@ -1,0 +1,11 @@
+.offcanvas__area.offcanvas-opened {
+    visibility: visible;
+    opacity: 1;
+    right: 0;
+}
+
+.offcanvas__area {
+    right: calc(-100% + 80px);
+    opacity: 0;
+    visibility: hidden;
+}

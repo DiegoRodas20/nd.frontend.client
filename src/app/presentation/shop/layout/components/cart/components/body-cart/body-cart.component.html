@@ -1,0 +1,11 @@
+<div *ngIf="productsCart.length" class="cart-body">
+    <ul class="cart-item-list">
+        <li *ngFor="let product of productsCart">
+            <app-product-cart [productCart]="product"></app-product-cart>
+        </li>
+    </ul>
+</div>
+
+<ng-container *ngIf="!productsCart.length">
+    <app-product-empty [name]="'Cart'"></app-product-empty>
+</ng-container>

@@ -1,0 +1,12 @@
+.breadcrumb__title {
+    font-size: 28px;
+}
+
+.breadcrumb__list span:not(:last-child)::after {
+    display: none;
+}
+
+.breadcrumb__list span:not(:last-child) {
+    padding-right: 0px; 
+    margin-right: 0px;
+}

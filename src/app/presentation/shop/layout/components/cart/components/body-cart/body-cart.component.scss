@@ -1,0 +1,15 @@
+.cart-body {
+    padding: 30px 0;
+    flex: auto;
+    height: calc(100vh - 330px);
+    overflow-y: scroll;
+    overscroll-behavior-y: contain;
+}
+
+.cart-item-list {
+    list-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

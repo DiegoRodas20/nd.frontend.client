@@ -1,0 +1,52 @@
+<div class="tp-mobile-menu">
+    <div class="container">
+        <div class="row">
+
+            <div class="col">
+                <div class="tp-mobile-item text-center">
+                    <a [routerLink]="routeService.homeRoute" class="tp-mobile-item-btn">
+                        <i class="fa-light fa-house"></i>
+                        <span>Home</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="tp-mobile-item text-center">
+                    <a [routerLink]="routeService.catalogRoute" class="tp-mobile-item-btn">
+                        <i class="fa-light fa-store"></i>
+                        <span>Store</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col d-lg-none">
+                <div class="tp-mobile-item text-center">
+                    <button class="tp-mobile-item-btn tp-search-open-btn" (click)="openSearchModal()">
+                        <i class="flaticon-search-1"></i>
+                        <span>Search</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="tp-mobile-item text-center">
+                    <a [routerLink]="routeService.wishListRoute" class="tp-mobile-item-btn">
+                        <i class="fa-light fa-heart"></i>
+                        <span>Wishlist</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="tp-mobile-item text-center">
+                    <a href="profile.html" class="tp-mobile-item-btn">
+                        <i class="fa-light fa-user"></i>
+                        <span>Account</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
