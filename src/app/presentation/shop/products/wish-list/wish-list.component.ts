@@ -29,19 +29,16 @@ export class WishlistComponent implements OnInit {
     }
 
     public getProductsWishlist() {
-        
         this._getProductsWishlist.execute().subscribe(result => {
             this.productsWishlist = result
         })
     }
 
     public registerProductCart(productWishlist: Wishlist) {
-
         this._registerProductCart.execute(productWishlist.idProduct)
     }
 
     public deleteProductWishlist(idProductWishlist: string) {
-
         this._deleteProductWishlist.execute(idProductWishlist)
     }
 }

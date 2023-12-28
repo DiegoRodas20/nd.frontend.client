@@ -1,13 +1,21 @@
-<div class="cartmini__checkout">
+<div class="cartmini-checkout">
+  <div class="cartmini-checkout-title mb-4">
+    <h4>Subtotal:</h4>
+    <span>${{totalPrice}}</span>
+  </div>
 
-    <div class="cartmini__checkout-title mb-30">
-        <h4>Subtotal:</h4>
-        <span>$113.00</span>
-    </div>
-
-    <div class="cartmini__checkout-btn">
-        <a [routerLink]="routeService.orderCartRoute" class="tp-btn mb-10 w-100"> view cart</a>
-        <a [routerLink]="routeService.checkOutRoute" class="tp-btn tp-btn-border w-100"> checkout</a>
-    </div>
-
+  <div class="cartmini-checkout-btn">
+    <a
+      [routerLink]="routeService.orderCartRoute"
+      class="mb-2 w-100"
+      (click)="closeShoppingCart()">
+      view cart
+    </a>
+    <a
+      [routerLink]="routeService.checkOutRoute"
+      class="btn-border w-100"
+      (click)="closeShoppingCart()">
+      checkout
+    </a>
+  </div>
 </div>

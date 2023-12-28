@@ -30,7 +30,7 @@ export class ProductCatalogComponent implements OnInit {
         var result = await this._registerProductCart.execute(product.id)
 
         if (result && !this._isAdding) {
-            this._animateCard()
+            this.animateCard()
         }
     }
 
@@ -39,7 +39,7 @@ export class ProductCatalogComponent implements OnInit {
         await this._registerProductWishlist.execute(product.id)
     }
 
-    private _animateCard() {
+    private animateCard() {
 
         this.addToCartLayer.nativeElement.style.visibility = 'visible';
         this.addToCartLayer.nativeElement.style.opacity = 1;

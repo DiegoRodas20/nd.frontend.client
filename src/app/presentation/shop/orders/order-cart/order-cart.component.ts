@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { DecrementQuantityProductCartCommand } from "src/app/application/cart/commands/decrement-quantity-product-cart/decrement-quantity-product-cart.command";
 import { DeleteProductCartCommand } from "src/app/application/cart/commands/delete-product-cart/delete-product-cart.command";
-import { IncrementQuantityProductCartCommand } from "src/app/application/cart/commands/increment-quantity-product-cart/increment-quantity-product-cart.command";
+import { UpdateProductCartCommand } from "src/app/application/cart/commands/update-product-cart/update-product-cart.command";
 import { GetProductsCartQuery } from "src/app/application/cart/queries/get-products-cart/get-products-cart.query";
+import { GetPurchaseOrderQuery } from "src/app/application/purchase-order/queries/get-purchase-order/get-purchase-order.query";
 import { Cart } from "src/app/domain/entities/cart.model";
+import { PurchaseOrder } from "src/app/domain/entities/purchase-order.model";
 import { slideFadeLeft } from "src/app/shared/animations/slide-fade-left.animation";
 import { RouteService } from "src/app/shared/services/route.service";
 
@@ -17,17 +18,19 @@ import { RouteService } from "src/app/shared/services/route.service";
 export class OrderCartComponent implements OnInit {
 
     products: Cart[] = []
+    purchaseOrder!: PurchaseOrder
 
     constructor(
         public routeService: RouteService,
         private _getProductsCart: GetProductsCartQuery,
+        private _getPurchaseOrder: GetPurchaseOrderQuery,
         private _deleteProductCart: DeleteProductCartCommand,
-        private _incrementQuantityProductCart: IncrementQuantityProductCartCommand,
-        private _decrementQuantityProductCart: DecrementQuantityProductCartCommand
+        private _updateProductCart: UpdateProductCartCommand
     ) { }
 
     ngOnInit() {
         this.getProductsCart()
+        this.getPurchaseOrder()
     }
 
     public getProductsCart() {
@@ -36,15 +39,27 @@ export class OrderCartComponent implements OnInit {
         })
     }
 
+    public getPurchaseOrder() {
+        this._getPurchaseOrder.execute().subscribe(result => {
+            this.purchaseOrder = result
+        })
+    }
+
     public deleteProductCart(idProductCart: string) {
         this._deleteProductCart.execute(idProductCart)
     }
 
     public incrementQuantityProductCart(idProductCart: string) {
-        this._incrementQuantityProductCart.execute(idProductCart);
+        this._updateProductCart.execute({
+            idProductCart: idProductCart,
+            increment: true,
+        });
     }
 
     public decrementQuantityProductCart(idProductCart: string) {
-        this._decrementQuantityProductCart.execute(idProductCart);
+        this._updateProductCart.execute({
+            idProductCart: idProductCart,
+            increment: false,
+        });
     }
 }

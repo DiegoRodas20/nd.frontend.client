@@ -1,3 +1,33 @@
-.tp-mobile-menu {
-    padding: 13px 0 13px;
+.mobile {
+
+    &-menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: var(--common-white);
+        padding: 13px 0 13px;
+        z-index: 999;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.7);
+        transition: all .3s 0s ease-out;
+    }
+
+    &-item {
+
+        font-size: 28px;
+        text-align: center;
+        transition: all .3s 0s ease-out;
+
+        & span {
+            display: block;
+            line-height: 1;
+            font-size: 13px;
+            margin-top: 3px;
+        }
+
+        &:hover {
+            color: var(--common-black);
+        }
+    }
 }

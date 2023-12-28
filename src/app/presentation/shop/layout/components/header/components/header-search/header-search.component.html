@@ -1,0 +1,26 @@
+<div class="header-search">
+    <div class="header-search-box">
+        <div class="header-search-input">
+            <input 
+                type="text" 
+                placeholder="Search for products (e.g. eggs, milk, potato)" 
+                [formControl]="inputSearch"
+                (focus)="onInputFocus()" 
+                (blur)="onInputBlur()" />
+            <span>
+                <i class="fa-sharp fa-regular fa-magnifying-glass"></i>
+            </span>
+        </div>
+
+        <div 
+            *ngIf="inputSearchFocused && products.length" 
+            class="header-search-results">
+            <ul>
+                <li *ngFor="let product of products" class="result-item">
+                    <i class="fa-sharp fa-regular fa-magnifying-glass"></i>
+                    <a [routerLink]="[ routeService.productDetailRoute, product.id ]" class="ms-2">{{ product.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { SharedModule } from "src/app/shared/shared.module";
-import { LAYOUT_COMPONENTS } from "./layout/layout.barrel";
+import { LAYOUT_COMPONENTS } from "./layout/layout.index";
 import { ShopRoutingModule } from "./shop.routing";
 
 @NgModule({

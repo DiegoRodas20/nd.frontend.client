@@ -38,9 +38,9 @@ export class RegisterProductWishlistCommandHandler implements RegisterProductWis
 
     private isProductAlreadyInWishlist(idProduct: number): boolean {
 
-        const result = this._wishlistRepository.getProductWishlistByProductId(idProduct) 
-                       ? true 
-                       : false
+        const result = this._wishlistRepository.getProductWishlistByProductId(idProduct)
+            ? true
+            : false
 
         return result
     }
@@ -53,8 +53,8 @@ export class RegisterProductWishlistCommandHandler implements RegisterProductWis
             image: product.images[0],
             name: product.name,
             price: product.price,
-            quantity: 1,
-            status: product.status
+            status: product.status,
+            rating: product.rating
         };
 
         return productWishlist;

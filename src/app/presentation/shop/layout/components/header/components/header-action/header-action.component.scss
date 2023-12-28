@@ -1,0 +1,71 @@
+.header-action {
+
+    &-item {
+
+        &:not(:first-child) {
+            margin-left: 20px;
+        }
+
+        &:last-child {
+            margin-right: 10px;
+        }
+    }
+
+    &-btn {
+        font-size: 20px;
+        color: var(--common-white);
+        position: relative;
+        display: inline-block;
+
+        .cart-animation {
+            animation: cart 4s ease-out infinite;
+        }
+    }
+
+    &-badge {
+        position: absolute;
+        top: -10px;
+        right: -16px;
+        display: inline-block;
+        width: 23px;
+        height: 23px;
+        line-height: 20px;
+        text-align: center;
+        border-radius: 50%;
+        font-size: 12px;
+        font-weight: 500;
+        background-color: var(--theme-primary);
+        color: var(--common-white);
+        border: 2px solid var(--common-white);
+    }
+}
+
+@keyframes cart {
+
+    0%,
+    90% {
+        transform: rotateZ(0)
+    }
+
+    5%,
+    15%,
+    25%,
+    35%,
+    45%,
+    55%,
+    65%,
+    75% {
+        transform: rotateZ(20deg)
+    }
+
+    10%,
+    20%,
+    30%,
+    40%,
+    50%,
+    60%,
+    70%,
+    80% {
+        transform: rotateZ(-20deg)
+    }
+}

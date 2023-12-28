@@ -1,0 +1,31 @@
+.cartmini-empty {
+
+    margin-top: 150px;
+
+    & img {
+        margin-bottom: 30px;
+    }
+
+    & p {
+        font-size: 16px;
+        color: var(--common-black);
+        margin-bottom: 15px;
+    }
+
+    & a {
+
+        display: inline-block;
+        font-size: 15px;
+        font-weight: 400;
+        text-transform: capitalize;
+        color: var(--common-black);
+        padding: 10px 30px;
+        text-align: center;
+        border: 1px solid var(--common-black);
+
+        &:hover {
+            background-color: var(--common-black);
+            color: var(--common-white);
+        }
+    }
+}

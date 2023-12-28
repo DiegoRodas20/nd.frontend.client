@@ -10,6 +10,7 @@
                             <tr>
                                 <th class="tp-cart-header-product"></th>
                                 <th colspan="2" class="tp-cart-header-product">Product</th>
+                                <th class="tp-cart-header-price">Rating</th>
                                 <th class="tp-cart-header-price">Price</th>
                                 <th class="tp-cart-header-quantity">Quantity</th>
                                 <th></th>
@@ -38,9 +39,14 @@
                                     <a href="product-details.html">{{ product.name }}</a>
                                 </td>
 
+                                <!-- Rating -->
+                                <td class="tp-cart-price">
+                                    <app-rating-star [rating]="product.rating"></app-rating-star>
+                                </td>
+
                                 <!-- Price -->
                                 <td class="tp-cart-price">
-                                    <span>${{ product.price }}</span>
+                                    <span>${{ product.priceCart }}</span>
                                 </td>
 
                                 <!-- Quantity -->
@@ -54,7 +60,7 @@
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </button>
-                                        <input class="tp-cart-input" type="text" [value]="product.quantity" />
+                                        <input class="tp-cart-input" type="text" [value]="product.quantity" readonly />
                                         <button class="tp-cart-plus" (click)="incrementQuantityProductCart(product.id)">
                                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -77,7 +83,7 @@
                 <div class="tp-cart-checkout-wrapper">
                     <div class="tp-cart-checkout-top d-flex align-items-center justify-content-between">
                         <span class="tp-cart-checkout-top-title">Subtotal</span>
-                        <span class="tp-cart-checkout-top-price">$742</span>
+                        <span class="tp-cart-checkout-top-price">${{purchaseOrder.totalPrice}}</span>
                     </div>
 
                     <div class="tp-cart-checkout-shipping">
@@ -101,7 +107,7 @@
 
                     <div class="tp-cart-checkout-total d-flex align-items-center justify-content-between">
                         <span>Total</span>
-                        <span>$724</span>
+                        <span>${{purchaseOrder.totalPrice}}</span>
                     </div>
 
                     <div class="tp-cart-checkout-proceed">

@@ -3,7 +3,8 @@ export interface Cart {
     idProduct: number,
     name: string,
     image: string,
-    price: number,
+    priceProduct: number,
+    priceCart: number,
     rating: number,
     quantity: number
 }

@@ -14,7 +14,9 @@
 
     <div class="item-content">
 
-        <app-rating-star></app-rating-star>
+        <app-rating-star 
+            [rating]="productCart.rating">
+        </app-rating-star>
 
         <h3 class="item-title">
             <a href="#">{{ productCart.name }}</a>
@@ -24,7 +26,7 @@
             <span class="currency-symbol">
                 $
             </span>
-                {{ productCart.price }}
+                {{ productCart.priceCart }}
         </div>
 
         <div class="pro-qty item-quantity">
@@ -37,7 +39,8 @@
             <input 
                 type="number" 
                 class="quantity-input" 
-                [value]="productCart.quantity" />
+                [value]="productCart.quantity" 
+                readonly/>
 
             <button 
                 class="inc qtybtn" 

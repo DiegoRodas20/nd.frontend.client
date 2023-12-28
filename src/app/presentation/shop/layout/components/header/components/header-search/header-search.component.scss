@@ -1,0 +1,71 @@
+@use 'presentation.component' as *;
+
+.header {
+
+    &-search {
+        margin-left: 22px;
+        margin-right: 22px;
+
+        @media #{$x4l, $x3l, $xxl} {
+            margin-left: 60px;
+            margin-right: 60px;
+        }
+
+        @media #{$xl} {
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+    }
+
+    &-search-box {
+        position: relative;
+    }
+
+    &-search-input {
+
+        & input {
+            height: 44px;
+            border: none;
+            border-radius: 30px;
+            padding-left: 52px;
+            padding-right: 130px;
+        }
+
+        & span {
+            position: absolute;
+            top: 50%;
+            left: 27px;
+            font-size: 18px;
+            color: var(--common-black);
+            transform: translateY(-50%);
+        }
+    }
+
+    &-search-results {
+
+        position: absolute;
+        width: 100%;
+        padding: 0.8rem;
+        background-color: var(--common-white);
+        border-radius: 15px;
+        margin-top: 0.5rem;
+        box-shadow: 0 1.75rem 1.875rem rgba(154, 156, 165, .08), 
+                    0 1.25rem 1rem rgba(154, 156, 165, .05), 
+                    0 .5rem .625rem rgba(154, 156, 165, .04), 
+                    0 .25rem .25rem rgba(30, 33, 44, .03);
+
+        .result-item {
+            padding: 0.3rem 1rem;
+            color: var(--common-black);
+            transition: all 400ms ease;
+            display: flex;
+            align-items: center;
+            border-radius: 6px;
+        }
+
+        .result-item:hover {
+            background: var(--text-7);
+        }
+    }
+
+}

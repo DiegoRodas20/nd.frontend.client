@@ -3,7 +3,8 @@ import { RouteService } from "../../services/route.service";
 
 @Component({
     selector: 'app-product-empty',
-    templateUrl: 'product-empty.component.html'
+    templateUrl: 'product-empty.component.html',
+    styleUrls: ['./product-empty.component.scss']
 })
 
 export class ProductEmptyComponent implements OnInit {

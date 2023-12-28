@@ -25,7 +25,6 @@ export class BodyCartComponent implements OnInit {
     }
 
     public getProductsCart() {
-
         this._getProductsCart.execute().subscribe(result => {
             this.productsCart = result
         })

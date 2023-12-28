@@ -6,7 +6,7 @@ export class ProductApiRepository implements ProductRepository {
     private products: Product[] = [
         {
             id: 1,
-            rating: 4,
+            rating: 2,
             images: ['https://www.chikarastore.com/tienda/wp-content/uploads/2022/01/Demon-Slayer-Kimetsu-no-Yaiba-FIGURE-vol.9-A-Kochou-Shinobu.jpeg'],
             category: 'Category 1',
             description: 'Descripcion',
@@ -17,7 +17,7 @@ export class ProductApiRepository implements ProductRepository {
         },
         {
             id: 2,
-            rating: 4,
+            rating: 3,
             images: ['https://www.grutinetpro.com/articulos/lg/lg_212056_0.jpg'],
             category: 'Category 2',
             description: 'Descripcion',
@@ -39,7 +39,7 @@ export class ProductApiRepository implements ProductRepository {
         },
         {
             id: 4,
-            rating: 4,
+            rating: 5,
             images: ['https://www.grutinetpro.com/articulos/lg/lg_212056_0.jpg'],
             category: 'Category 4',
             description: 'Descripcion',

@@ -1,3 +1,26 @@
-.cartmini__top-title h4 {
-    font-size: 22px;
+.cartmini {
+
+    &-title {
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border-primary);
+
+        & h4 {
+            font-size: 22px;
+            text-transform: capitalize;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+    }
+
+    &-close {
+        position: absolute;
+        top: 17px;
+        right: 0;
+
+        &-btn {
+            background: transparent;
+            color: var(--common-black);
+            font-size: 22px;
+        }
+    }
 }

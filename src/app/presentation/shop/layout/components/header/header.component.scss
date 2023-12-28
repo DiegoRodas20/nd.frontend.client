@@ -1,0 +1,22 @@
+@use 'presentation.component' as *;
+
+header {
+    z-index: 11;
+    position: sticky;
+    top: 0;
+}
+
+.header-area {
+    position: relative;
+}
+
+.header-main {
+    padding-top: 27px;
+    padding-bottom: 27px;
+    background-color: var(--theme-secondary);
+
+    @media #{$md, $sm, $xs} {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}

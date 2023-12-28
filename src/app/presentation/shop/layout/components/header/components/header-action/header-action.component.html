@@ -1,0 +1,22 @@
+<div class="d-flex align-items-center justify-content-end">
+    <div class="d-flex align-items-center ml-50">
+
+        <div class="header-action-item d-none d-lg-block">
+            <a [routerLink]="routeService.wishListRoute" class="header-action-btn">
+                <i class="fa-light fa-heart"></i>
+                <span class="header-action-badge">{{ countProductsWishlist }}</span>
+            </a>
+        </div>
+
+        <div class="header-action-item">
+            <button 
+                type="button" 
+                class="header-action-btn" 
+                (click)="openShoppingCart()">
+                <i class="fa-light fa-bag-shopping cart-animation"></i>
+                <span class="header-action-badge">{{ countProductsCart }}</span>
+            </button>
+        </div>
+        
+    </div>
+</div>

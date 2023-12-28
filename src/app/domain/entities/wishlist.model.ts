@@ -5,5 +5,5 @@ export interface Wishlist {
     image: string,
     price: number,
     status: string,
-    quantity: number
+    rating: number
 }

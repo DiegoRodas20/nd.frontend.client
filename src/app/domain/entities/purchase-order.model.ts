@@ -1,4 +1,7 @@
+import { Cart } from "./cart.model";
+
 export interface PurchaseOrder {
-    products: number[],
-    price: number
+
+    products: Cart[],
+    totalPrice: number
 }

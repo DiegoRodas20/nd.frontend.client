@@ -9,9 +9,10 @@
                             <tr>
                                 <th class="tp-cart-header-product"></th>
                                 <th colspan="2" class="tp-cart-header-product">Product</th>
+                                <th class="tp-cart-header-price">Rating</th>
                                 <th class="tp-cart-header-price">Price</th>
                                 <th class="tp-cart-header-price">Stock Status</th>
-                                <th class="tp-cart-header-quantity">Quantity</th>
+                                <!-- <th class="tp-cart-header-quantity">Quantity</th> -->
                                 <th></th>
                             </tr>
                         </thead>
@@ -37,6 +38,11 @@
                                     <a href="product-details.html">{{product.name}}</a>
                                 </td>
 
+                                <!-- Rating -->
+                                <td class="tp-cart-price">
+                                    <app-rating-star [rating]="product.rating"></app-rating-star>
+                                </td>
+
                                 <!-- Price -->
                                 <td class="tp-cart-price">
                                     <span>{{product.price}}</span>
@@ -44,11 +50,11 @@
 
                                 <!-- Stock Status -->
                                 <td class="tp-cart-status">
-                                    <span>Disponible</span>
+                                    <span>{{product.status}}</span>
                                 </td>
 
                                 <!-- Quantity -->
-                                <td class="tp-cart-quantity">
+                                <!-- <td class="tp-cart-quantity">
                                     <div class="tp-product-quantity mt-10 mb-10">
                                         <span class="tp-cart-minus">
                                             <svg width="10" height="2" viewBox="0 0 10 2" fill="none"
@@ -57,7 +63,7 @@
                                                     stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </span>
-                                        <input class="tp-cart-input" type="text" [value]="product.quantity">
+                                        <input class="tp-cart-input" type="text" [value]="product.quantity" readonly>
                                         <span class="tp-cart-plus">
                                             <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -68,7 +74,7 @@
                                             </svg>
                                         </span>
                                     </div>
-                                </td>
+                                </td> -->
 
                                 <!-- Register product in cart -->
                                 <td class="tp-cart-add-to-cart text-center">
