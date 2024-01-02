@@ -1,50 +1,37 @@
-<div class="cart-item">
-    <div class="item-img">
+<div class="cartmini-product">
+    <div class="cartmini-product-img">
         <a href="#">
-            <img 
-                [src]="productCart.image" 
-                alt="Commodo Blown Lamp" />
+            <img [src]="productCart.image" alt="Commodo Blown Lamp" />
         </a>
-        <button 
-            class="close-btn" 
-            (click)="deleteProductCart(productCart.id)">
+        <button (click)="deleteProductCart(productCart.id)">
             <i class="fas fa-times"></i>
         </button>
     </div>
 
-    <div class="item-content">
+    <div class="cartmini-product-content">
 
-        <app-rating-star 
-            [rating]="productCart.rating">
+        <app-rating-star [rating]="productCart.rating">
         </app-rating-star>
 
-        <h3 class="item-title">
+        <h3 class="cartmini-product-content-name">
             <a href="#">{{ productCart.name }}</a>
         </h3>
 
-        <div class="item-price">
+        <div class="cartmini-product-content-price">
             <span class="currency-symbol">
                 $
             </span>
-                {{ productCart.priceCart }}
+            {{ productCart.priceCart }}
         </div>
 
         <div class="pro-qty item-quantity">
-            
-            <button 
-                class="dec qtybtn" 
-                (click)="decrementQuantityProductCart(productCart.id)">
+
+            <button class="dec qtybtn" (click)="decrementQuantityProductCart(productCart.id)">
                 -
             </button>
-            <input 
-                type="number" 
-                class="quantity-input" 
-                [value]="productCart.quantity" 
-                readonly/>
+            <input type="number" class="quantity-input" [value]="productCart.quantity" readonly />
 
-            <button 
-                class="inc qtybtn" 
-                (click)="incrementQuantityProductCart(productCart.id)">
+            <button class="inc qtybtn" (click)="incrementQuantityProductCart(productCart.id)">
                 +
             </button>
         </div>
