@@ -1,12 +1,7 @@
-<div 
-    *ngIf="productsCart.length" 
-    class="cartmini-body">
+<div *ngIf="productsCart.length" class="cartmini-body">
     <ul>
-        <li 
-            *ngFor="let product of productsCart" 
-            [@slideFadeLeft]>
-            <app-product-cart 
-                [productCart]="product">
+        <li *ngFor="let product of productsCart" [@slideFadeLeft]>
+            <app-product-cart [productCart]="product">
             </app-product-cart>
         </li>
     </ul>

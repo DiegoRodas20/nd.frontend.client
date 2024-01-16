@@ -24,16 +24,21 @@
             {{ productCart.priceCart }}
         </div>
 
-        <div class="pro-qty item-quantity">
+        <div class="cartmini-product-content-quantity">
 
-            <button class="dec qtybtn" (click)="decrementQuantityProductCart(productCart.id)">
+            <button (click)="decrementQuantityProductCart(productCart.id)">
                 -
             </button>
-            <input type="number" class="quantity-input" [value]="productCart.quantity" readonly />
 
-            <button class="inc qtybtn" (click)="incrementQuantityProductCart(productCart.id)">
+            <input 
+                type="number" 
+                [value]="productCart.quantity" 
+                readonly />
+
+            <button (click)="incrementQuantityProductCart(productCart.id)">
                 +
             </button>
+            
         </div>
 
     </div>

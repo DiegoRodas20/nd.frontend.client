@@ -70,6 +70,16 @@ p {
     line-height: 26px;
 }
 
+a,
+button,
+p,
+input,
+select,
+textarea,
+li {
+    @include transition();
+}
+
 a:not([href]):not([class]),
 a:not([href]):not([class]):hover {
     color: inherit;
@@ -112,7 +122,6 @@ button:focus {
     text-transform: capitalize;
 }
 
-
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -148,4 +157,34 @@ textarea {
 
 a {
     transition: all .3s 0s ease-out;
+}
+
+.green-dark-bg {
+    background-color: var(--green-dark);
+}
+
+.light-bg {
+    background-color: var(--white-light);
+}
+
+.swiper-dot {
+
+    line-height: 1;
+
+    .swiper-pagination-bullet {
+
+        width: 10px;
+        height: 10px;
+        background-color: rgba($color: #fff, $alpha: .2);
+        opacity: 1;
+        position: relative;
+
+        & button {
+            font-size: 0;
+        }
+
+        &.swiper-pagination-bullet-active {
+            background-color: var(--common-white);
+        }
+    }
 }

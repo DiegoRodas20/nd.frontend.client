@@ -10,7 +10,6 @@ import { EffectFade, Pagination } from 'swiper/modules';
 
 export class BannerHomeComponent implements OnInit {
 
-    
     @ViewChild('swiperContainer') swiperContainer!: ElementRef;
     public swiperInstance: Swiper | undefined;
     public swiperIndex: number = 0;
@@ -60,14 +59,14 @@ export class BannerHomeComponent implements OnInit {
 
     ngAfterViewInit() {
         if (this.swiperContainer) {
-            this.swiperInstance = new Swiper('.tp-slider-active', {
+            this.swiperInstance = new Swiper('.slider-container', {
                 slidesPerView: 1,
                 spaceBetween: 30,
                 loop: false,
                 effect: 'fade',
                 modules: [EffectFade, Pagination],
                 pagination: {
-                    el: ".tp-slider-dot",
+                    el: ".slider-dot",
                     clickable: true
                 },
                 on: {

@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'presentation-root',
-  templateUrl: './presentation.component.html',
-  styleUrls: ['./presentation.component.scss']
+  template: '<router-outlet></router-outlet>'
 })
 
 export class PresentationComponent { }

@@ -1,0 +1,17 @@
+@mixin animation-name($name: fadeInUp, $fill : both) {
+    animation-name: $name;
+    animation-fill-mode: $fill;
+}
+
+@mixin animation-control($time: .3s, $duration : 1s) {
+    animation-delay: $time;
+    animation-duration: $duration;
+}
+
+@mixin transition($property: all, $time: .3s, $func : ease-out, $delay : 0s) {
+    -webkit-transition: $property $time $delay $func;
+    -moz-transition: $property $time $delay $func;
+    -ms-transition: $property $time $delay $func;
+    -o-transition: $property $time $delay $func;
+    transition: $property $time $delay $func;
+}

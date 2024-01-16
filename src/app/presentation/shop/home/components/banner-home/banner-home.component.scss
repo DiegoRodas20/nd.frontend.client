@@ -1,0 +1,169 @@
+@use 'index' as *;
+
+.slider-container {
+    $self : &;
+
+    &:hover {
+
+        & .slider-arrow button {
+
+            left: 40px;
+            visibility: visible;
+            opacity: 1;
+
+            &.slider-button-next {
+                right: 40px;
+            }
+        }
+    }
+
+    & .swiper-slide-active {
+
+        & .slider-title,
+        & .slider-content span,
+        & .slider-content p,
+        & .slider-button a {
+            @include animation-name();
+        }
+
+        & .slider-thumb {
+            & img {
+                @include animation-name(fadeInRight);
+            }
+        }
+    }
+    
+    .swiper-wrapper {
+
+        .slider-height {
+            min-height: 516px;
+
+            @media #{$sm, $xs} {
+                min-height: 816px;
+            }
+        }
+
+        .slider-content {
+            &>span {
+                display: inline-block;
+                font-size: 16px;
+                color: var(--common-white);
+                @include animation-control(.3s);
+            }
+
+            & p {
+                color: var(--common-white);
+                font-weight: 400;
+                font-size: 28px;
+                margin-bottom: 40px;
+                @include animation-control(.7s);
+
+                & span {
+                    display: inline-block;
+                    color: var(--tp-yellow-2);
+                    position: relative;
+                    z-index: 1;
+
+                    & svg {
+                        position: absolute;
+                        bottom: -21px;
+                        left: -29px;
+                        z-index: -1;
+                    }
+                }
+            }
+        }
+
+        .slider-title {
+            font-weight: 900;
+            font-size: 56px;
+            line-height: 1.07;
+            color: var(--common-white);
+            margin-bottom: 12px;
+            @include animation-control(.5s);
+
+            @media #{$md} {
+                font-size: 45px;
+            }
+
+            @media #{$xs} {
+                font-size: 37px;
+            }
+        }
+
+        .slider-button {
+            a {
+                border: 1px solid var(--common-white);
+                background-color: var(--common-white);
+                box-shadow: 0 1px 2px #010f1c1a;
+                color: var(--common-black);
+                padding: 9px 29px;
+                font-weight: 500;
+                font-size: 14px;
+                border-radius: 6px;
+                display: inline-block;
+
+                @include animation-control(.9s);
+
+                &:hover {
+                    background-color: transparent;
+                    color: var(--common-white);
+                    border-color: rgba($color: #fff, $alpha: .2);
+                }
+            }
+        }
+
+        .slider-thumb {
+            & img {
+                display: inline-block !important;
+                @include animation-control(.9s);
+
+                @media #{$xs} {
+                    width: 100%;
+                    margin-top: 50px;
+                }
+            }
+        }
+    }
+
+    .slider-arrow {
+
+        button {
+            width: 40px;
+            height: 40px;
+            line-height: 38px;
+            color: var(--common-white);
+            border: 1px solid rgba($color: #010F1C, $alpha: .1);
+            border-color: rgba($color: #fff, $alpha: .2);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 0px;
+            transform: translateY(-50%);
+            z-index: 1;
+            opacity: 0;
+
+            &:hover {
+                background-color: var(--common-white);
+                border-color: var(--common-white);
+                color: var(--common-black);
+            }
+
+            &.slider-button-next {
+                left: auto;
+                right: 0px;
+            }
+        }
+
+    }
+
+    .slider-dot {
+        position: absolute;
+        left: 50%;
+        bottom: 25px;
+        transform: translateX(-50%);
+        z-index: 1;
+        width: auto;
+    }
+
+}
