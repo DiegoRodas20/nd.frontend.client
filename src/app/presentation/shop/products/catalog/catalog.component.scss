@@ -1,3 +1,14 @@
-.tp-product-list-thumb {
-    flex: 0 0 33%;
+.shop {
+
+    &-area {
+        padding-bottom: 120px;
+    }
+
+    &-main-wrapper {
+        position: relative;
+    }
 }
+
+// .tp-product-list-thumb {
+//     flex: 0 0 33%;
+// }

@@ -1,0 +1,43 @@
+@use 'index' as *;
+
+.pagination {
+
+    margin-top: 20px;
+    justify-content: center;
+
+    &__wrapper {
+
+        ul {
+            display: flex;
+
+            li {
+                display: inline-block;
+
+                &:not(:last-child) {
+                    margin-right: 6px;
+                }
+
+                & a,
+                & span {
+                    display: inline-block;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 38px;
+                    text-align: center;
+                    border: 1px solid rgba($color: $black, $alpha: .1);
+                    border-radius: 50%;
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: var(--text-body);
+
+                    &:hover,
+                    &.current {
+                        background: var(--theme-primary);
+                        border-color: var(--theme-primary);
+                        color: var(--common-white);
+                    }
+                }
+            }
+        }
+    }
+}

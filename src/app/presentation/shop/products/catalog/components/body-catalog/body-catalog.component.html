@@ -2,11 +2,12 @@
     <div class="tab-content">
         <div *ngIf="products" class="tab-pane fade show active">
             <div class="row" [@scaleFadeStagger]>
-
-                <div *ngFor="let product of products" class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                    <app-product-catalog [product]="product"></app-product-catalog>
+                <div 
+                    *ngFor="let product of products" 
+                    class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <app-product-catalog [product]="product">
+                    </app-product-catalog>
                 </div>
-
             </div>
         </div>
     </div>

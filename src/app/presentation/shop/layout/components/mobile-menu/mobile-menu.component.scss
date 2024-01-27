@@ -1,6 +1,6 @@
 .mobile {
 
-    &-menu {
+    &__menu {
         position: fixed;
         bottom: 0;
         left: 0;
@@ -9,11 +9,11 @@
         background-color: var(--common-white);
         padding: 13px 0 13px;
         z-index: 999;
-        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.7);
+        border-top: 1px solid var(--border-primary);
         transition: all .3s 0s ease-out;
     }
 
-    &-item {
+    &__item {
 
         font-size: 28px;
         text-align: center;

@@ -6,6 +6,7 @@ import { scaleFadeStagger } from "src/app/shared/animations/scale-fade-stagger.a
 @Component({
     selector: 'app-body-catalog',
     templateUrl: 'body-catalog.component.html',
+    styleUrls: ['body-catalog.component.scss'],
     animations: [scaleFadeStagger]
 })
 

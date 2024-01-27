@@ -3,7 +3,9 @@ import { FilterCatalogService } from "../body-catalog/components/filter-catalog/
 
 @Component({
     selector: 'app-header-catalog',
-    templateUrl: 'header-catalog.component.html'
+    templateUrl: 'header-catalog.component.html',
+    styleUrls: ['./header-catalog.component.scss']
+
 })
 
 export class HeaderCatalogComponent implements OnInit {

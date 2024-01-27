@@ -1,4 +1,4 @@
-<div class="mobile-menu">
+<div class="mobile__menu">
     <div class="container">
         <div class="row">
 
@@ -7,7 +7,7 @@
                     <a 
                         [routerLink]="routeService.homeRoute" 
                         routerLinkActive="active"
-                        class="mobile-item">
+                        class="mobile__item">
                         <i class="fa-light fa-house"></i>
                         <span>Home</span>
                     </a>
@@ -19,7 +19,7 @@
                     <a 
                         [routerLink]="routeService.catalogRoute" 
                         routerLinkActive="active"
-                        class="mobile-item">
+                        class="mobile__item">
                         <i class="fa-light fa-store"></i>
                         <span>Store</span>
                     </a>
@@ -30,7 +30,7 @@
                 <div class="text-center">
                     <button 
                         (click)="openSearchModal()" 
-                        class="mobile-item">
+                        class="mobile__item">
                         <i class="flaticon-search-1"></i>
                         <span>Search</span>
                     </button>
@@ -42,7 +42,7 @@
                     <a 
                         [routerLink]="routeService.wishListRoute" 
                         routerLinkActive="active"
-                        class="mobile-item">
+                        class="mobile__item">
                         <i class="fa-light fa-heart"></i>
                         <span>Wishlist</span>
                     </a>
@@ -51,7 +51,7 @@
 
             <div class="col">
                 <div class="text-center">
-                    <a href="profile.html" class="mobile-item">
+                    <a href="profile.html" class="mobile__item">
                         <i class="fa-light fa-user"></i>
                         <span>Account</span>
                     </a>
