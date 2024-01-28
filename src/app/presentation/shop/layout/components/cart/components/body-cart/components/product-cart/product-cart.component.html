@@ -1,5 +1,5 @@
-<div class="cartmini-product">
-    <div class="cartmini-product-img">
+<div class="cart">
+    <div class="cart__thumb">
         <a href="#">
             <img [src]="productCart.image" alt="Commodo Blown Lamp" />
         </a>
@@ -8,37 +8,36 @@
         </button>
     </div>
 
-    <div class="cartmini-product-content">
+    <div class="cart__content">
 
-        <app-rating-star [rating]="productCart.rating">
-        </app-rating-star>
+        <div class="cart__rating">
+            <app-rating-star [rating]="productCart.rating">
+            </app-rating-star>
+        </div>
 
-        <h3 class="cartmini-product-content-name">
+        <h3 class="cart__name">
             <a href="#">{{ productCart.name }}</a>
         </h3>
 
-        <div class="cartmini-product-content-price">
+        <div class="cart__price">
             <span class="currency-symbol">
                 $
             </span>
             {{ productCart.priceCart }}
         </div>
 
-        <div class="cartmini-product-content-quantity">
+        <div class="cart__quantity">
 
             <button (click)="decrementQuantityProductCart(productCart.id)">
-                -
+                <i class="fa-regular fa-minus fa-2xs"></i>
             </button>
 
-            <input 
-                type="number" 
-                [value]="productCart.quantity" 
-                readonly />
+            <input type="text" [value]="productCart.quantity" readonly />
 
             <button (click)="incrementQuantityProductCart(productCart.id)">
-                +
+                <i class="fa-regular fa-plus fa-2xs"></i>
             </button>
-            
+
         </div>
 
     </div>

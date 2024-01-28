@@ -151,6 +151,7 @@
             width: 0;
             height: 1px;
             background-color: var(--theme-secondary);
+            @include transition();
         }
 
         &:hover {
@@ -178,20 +179,11 @@
     }
 
     &__rating {
-
         margin-right: 6px;
         display: flex;
         align-items: center;
+        margin-top: 4px;
         margin-bottom: 4px;
-
-        & span {
-            color: var(--yellow-3);
-            font-size: 12px;
-
-            &:not(:last-child) {
-                margin-right: 2px;
-            }
-        }
     }
 
     &__price {

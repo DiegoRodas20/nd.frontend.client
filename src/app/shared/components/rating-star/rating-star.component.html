@@ -1,5 +1,5 @@
-<div class="product-rating">
-    <span class="rating-icon">
+<div class="rating">
+    <span class="rating__star">
         <i 
             *ngFor="let star of stars; let i = index" 
             [ngClass]="[i < rating ? 'fas' : 'fal', 'fa-star']" ></i>

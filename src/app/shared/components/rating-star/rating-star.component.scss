@@ -1,8 +1,7 @@
-.product-rating {
-    margin-bottom: 8px;
+.rating {
     font-size: 12px;
 
-    .rating-icon {
-        color: #ffa800;
+    &__star {
+        color: var(--yellow-3);
     }
 }
