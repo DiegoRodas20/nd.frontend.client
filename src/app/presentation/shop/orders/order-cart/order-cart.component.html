@@ -1,74 +1,73 @@
-<section class="tp-cart-area pb-120">
+<section class="order-cart">
     <div class="container">
 
         <div *ngIf="products.length" class="row">
 
             <div class="col-xl-9 col-lg-8">
-                <div class="tp-cart-list mb-25 mr-30">
-                    <table class="table">
+                <div class="order-cart__products">
+                    <table [@slideTable] class="table">
                         <thead>
                             <tr>
-                                <th class="tp-cart-header-product"></th>
-                                <th colspan="2" class="tp-cart-header-product">Product</th>
-                                <th class="tp-cart-header-price">Rating</th>
-                                <th class="tp-cart-header-price">Price</th>
-                                <th class="tp-cart-header-quantity">Quantity</th>
+                                <th></th>
+                                <th colspan="2">Product</th>
+                                <th>Rating</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
                                 <th></th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr *ngFor="let product of products">
+                            <tr [@slideFadeLeft] *ngFor="let product of products">
 
                                 <!-- Delete product to wishlist -->
-                                <td class="tp-product-remove">
-                                    <button class="remove-wishlist" (click)="deleteProductCart(product.id)">
+                                <td>
+                                    <button type="button" class="order-cart__remove"
+                                        (click)="deleteProductCart(product.id)">
                                         <i class="fal fa-times"></i>
                                     </button>
                                 </td>
 
                                 <!-- Image -->
-                                <td class="tp-cart-img">
+                                <td class="order-cart__image">
                                     <a href="product-details.html">
                                         <img [src]="product.image" alt="" />
                                     </a>
                                 </td>
 
                                 <!-- Title -->
-                                <td class="tp-cart-title">
+                                <td>
                                     <a href="product-details.html">{{ product.name }}</a>
                                 </td>
 
                                 <!-- Rating -->
-                                <td class="tp-cart-price">
+                                <td>
                                     <app-rating-star [rating]="product.rating"></app-rating-star>
                                 </td>
 
                                 <!-- Price -->
-                                <td class="tp-cart-price">
+                                <td>
                                     <span>${{ product.priceCart }}</span>
                                 </td>
 
                                 <!-- Quantity -->
-                                <td class="tp-cart-quantity">
-                                    <div class="tp-product-quantity mt-10 mb-10">
-                                        <button class="tp-cart-minus"
+                                <td class="order-cart__quantity">
+                                    <div class="order-cart__input">
+                                        <button 
+                                            type="button" 
+                                            class="order-cart__minus"
                                             (click)="decrementQuantityProductCart(product.id)">
-                                            <svg width="10" height="2" viewBox="0 0 10 2" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M1 1H9" stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
+                                            <i class="fa-regular fa-minus fa-2xs"></i>
                                         </button>
-                                        <input class="tp-cart-input" type="text" [value]="product.quantity" readonly />
-                                        <button class="tp-cart-plus" (click)="incrementQuantityProductCart(product.id)">
-                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5 1V9" stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                                <path d="M1 5H9" stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
+                                        <input 
+                                            type="text"
+                                            [value]="product.quantity" 
+                                            readonly />
+                                        <button 
+                                            type="button"
+                                            class="order-cart__plus" 
+                                            (click)="incrementQuantityProductCart(product.id)">
+                                            <i class="fa-regular fa-plus fa-2xs"></i>
                                         </button>
                                     </div>
                                 </td>

@@ -49,10 +49,8 @@ export class RegisterProductCartCommandHandler implements RegisterProductCartCom
     private isProductAlreadyInCart(idProduct: number): boolean {
 
         const productCartExist = this._cartRepository.getProductCartByProductId(idProduct)
-            ? true
-            : false;
 
-        return productCartExist;
+        return productCartExist ? true : false;
     }
 
     private createProductCartFromProduct(product: Product): Cart {

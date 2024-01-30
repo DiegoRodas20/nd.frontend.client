@@ -6,13 +6,14 @@ import { GetPurchaseOrderQuery } from "src/app/application/purchase-order/querie
 import { Cart } from "src/app/domain/entities/cart.model";
 import { PurchaseOrder } from "src/app/domain/entities/purchase-order.model";
 import { slideFadeLeft } from "src/app/shared/animations/slide-fade-left.animation";
+import { slideTable } from "src/app/shared/animations/slide-table.animation";
 import { RouteService } from "src/app/shared/services/route.service";
 
 @Component({
     selector: 'app-order-cart',
     templateUrl: 'order-cart.component.html',
     styleUrls: ['./order-cart.component.scss'],
-    animations: [slideFadeLeft]
+    animations: [slideFadeLeft, slideTable]
 })
 
 export class OrderCartComponent implements OnInit {
