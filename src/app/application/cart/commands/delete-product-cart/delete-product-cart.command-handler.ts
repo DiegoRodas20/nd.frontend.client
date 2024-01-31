@@ -16,16 +16,18 @@ export class DeleteProductCartCommandHandler implements DeleteProductCartCommand
 
     async execute(idProductCart: string): Promise<boolean> {
 
-        const products = await firstValueFrom(this._cartRepository.getProductsCart())
+        const value = await this._cartRepository.deleteProductCartSignal(idProductCart)
 
-        const productsFilter = products.filter(productCart => productCart.id != idProductCart)
+        // const products = await firstValueFrom(this._cartRepository.getProductsCart())
 
-        const isDeleted = await this._cartRepository.updateProductsCart(productsFilter)
+        // const productsFilter = products.filter(productCart => productCart.id != idProductCart)
 
-        if (isDeleted) {
-            this._setPurchaseOrder.execute(productsFilter)
-        }
+        // const isDeleted = await this._cartRepository.updateProductsCart(productsFilter)
 
-        return isDeleted
+        // if (isDeleted) {
+        //     this._setPurchaseOrder.execute(productsFilter)
+        // }
+
+        return value
     }
 }

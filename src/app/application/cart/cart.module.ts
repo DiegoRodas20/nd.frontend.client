@@ -5,6 +5,8 @@ import { RegisterProductCartCommand } from "./commands/register-product-cart/reg
 import { RegisterProductCartCommandHandler } from "./commands/register-product-cart/register-product-cart.command-handler";
 import { UpdateProductCartCommand } from "./commands/update-product-cart/update-product-cart.command";
 import { UpdateProductCartCommandHandler } from "./commands/update-product-cart/update-product-cart.command-handler";
+import { GetProductsCartSignalQuery } from "./queries/get-products-cart-signal/get-products-cart-signal.query";
+import { GetProductsCartSignalQueryHandler } from "./queries/get-products-cart-signal/get-products-cart-signal.query-handler";
 import { GetProductsCartQuery } from "./queries/get-products-cart/get-products-cart.query";
 import { GetProductsCartQueryHandler } from "./queries/get-products-cart/get-products-cart.query-handler";
 
@@ -13,7 +15,8 @@ import { GetProductsCartQueryHandler } from "./queries/get-products-cart/get-pro
         { provide: GetProductsCartQuery, useClass: GetProductsCartQueryHandler },
         { provide: DeleteProductCartCommand, useClass: DeleteProductCartCommandHandler },
         { provide: RegisterProductCartCommand, useClass: RegisterProductCartCommandHandler },
-        { provide: UpdateProductCartCommand, useClass: UpdateProductCartCommandHandler }
+        { provide: UpdateProductCartCommand, useClass: UpdateProductCartCommandHandler },
+        { provide: GetProductsCartSignalQuery, useClass: GetProductsCartSignalQueryHandler },
     ]
 })
 
