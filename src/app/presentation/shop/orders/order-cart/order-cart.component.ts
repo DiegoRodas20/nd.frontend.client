@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Signal, signal } from "@angular/core";
+import { DecreaseProductCartCommand } from "src/app/application/cart/commands/decrease-product-cart/decrease-product-cart.command";
 import { DeleteProductCartCommand } from "src/app/application/cart/commands/delete-product-cart/delete-product-cart.command";
-import { UpdateProductCartCommand } from "src/app/application/cart/commands/update-product-cart/update-product-cart.command";
+import { IncreaseProductCartCommand } from "src/app/application/cart/commands/increase-product-cart/increase-product-cart.command";
 import { GetProductsCartQuery } from "src/app/application/cart/queries/get-products-cart/get-products-cart.query";
 import { GetPurchaseOrderQuery } from "src/app/application/purchase-order/queries/get-purchase-order/get-purchase-order.query";
 import { Cart } from "src/app/domain/entities/cart.model";
@@ -18,7 +19,7 @@ import { RouteService } from "src/app/shared/services/route.service";
 
 export class OrderCartComponent implements OnInit {
 
-    products: Cart[] = []
+    products: Signal<Cart[]> = signal([])
     purchaseOrder!: PurchaseOrder
 
     constructor(
@@ -26,7 +27,8 @@ export class OrderCartComponent implements OnInit {
         private _getProductsCart: GetProductsCartQuery,
         private _getPurchaseOrder: GetPurchaseOrderQuery,
         private _deleteProductCart: DeleteProductCartCommand,
-        private _updateProductCart: UpdateProductCartCommand
+        private _increaseProductCart: IncreaseProductCartCommand,
+        private _decreaseProductCart: DecreaseProductCartCommand
     ) { }
 
     ngOnInit() {
@@ -35,9 +37,8 @@ export class OrderCartComponent implements OnInit {
     }
 
     public getProductsCart() {
-        this._getProductsCart.execute().subscribe(result => {
-            this.products = result
-        })
+
+        this.products = this._getProductsCart.execute()
     }
 
     public getPurchaseOrder() {
@@ -47,20 +48,17 @@ export class OrderCartComponent implements OnInit {
     }
 
     public deleteProductCart(idProductCart: string) {
+        
         this._deleteProductCart.execute(idProductCart)
     }
 
     public incrementQuantityProductCart(idProductCart: string) {
-        this._updateProductCart.execute({
-            idProductCart: idProductCart,
-            increment: true,
-        });
+
+        this._increaseProductCart.execute(idProductCart)
     }
 
     public decrementQuantityProductCart(idProductCart: string) {
-        this._updateProductCart.execute({
-            idProductCart: idProductCart,
-            increment: false,
-        });
+
+        this._decreaseProductCart.execute(idProductCart)
     }
 }

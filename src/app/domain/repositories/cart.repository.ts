@@ -1,20 +1,18 @@
 import { Signal } from "@angular/core";
-import { Observable } from "rxjs";
 import { Cart } from "../entities/cart.model";
 
 export abstract class CartRepository {
 
-    abstract getProductsCart(): Observable<Cart[]>
+    abstract getProductsCart(): Signal<Cart[]>
 
-    abstract getProductCartByProductId(idProduct: number): Cart
+    abstract getProductCartByProductId(idProduct: number): Cart | undefined
 
-    abstract updateProductsCart(productsCart: Cart[]): Promise<boolean>
+    abstract registerProductCart(productCart: Cart): Promise<boolean>
 
-    // Signals
+    abstract deleteProductCart(idProductCart: string): Promise<boolean>
 
-    abstract getProductsCartSignal(): Signal<Cart[]>
+    abstract increaseQuantityProductCart(idProductCart: string): Promise<boolean>
 
-    abstract addProductsCartSignal(idProductCart: string): Promise<boolean>
+    abstract decreaseQuantityProductCart(idProductCart: string): Promise<boolean>
 
-    abstract deleteProductCartSignal(idProductCart: string): Promise<boolean>
 }

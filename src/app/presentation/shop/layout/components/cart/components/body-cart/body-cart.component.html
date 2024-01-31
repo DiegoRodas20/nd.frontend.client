@@ -1,12 +1,12 @@
-<div *ngIf="productsCartSignal().length " class="cartmini-body">
+<div *ngIf="productsCart()?.length " class="cartmini-body">
     <ul>
-        <li *ngFor="let product of productsCartSignal()" [@slideFadeLeft]>
+        <li *ngFor="let product of productsCart()" [@slideFadeLeft]>
             <app-product-cart [productCart]="product">
             </app-product-cart>
         </li>
     </ul>
 </div>
 
-<ng-container *ngIf="!productsCartSignal().length">
+<ng-container *ngIf="!productsCart()?.length">
     <app-product-empty [name]="'Cart'"></app-product-empty>
 </ng-container>

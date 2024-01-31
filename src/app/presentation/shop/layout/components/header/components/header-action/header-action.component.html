@@ -9,14 +9,11 @@
         </div>
 
         <div class="header-action-item">
-            <button 
-                type="button" 
-                class="header-action-btn" 
-                (click)="openShoppingCart()">
+            <button type="button" class="header-action-btn" (click)="openShoppingCart()">
                 <i class="fa-light fa-bag-shopping cart-animation"></i>
-                <span class="header-action-badge">{{ countProductsCart }}</span>
+                <span class="header-action-badge">{{ countProductsCart().length }}</span>
             </button>
         </div>
-        
+
     </div>
 </div>

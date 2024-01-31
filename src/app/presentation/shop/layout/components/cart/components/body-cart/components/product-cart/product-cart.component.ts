@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DecreaseProductCartCommand } from 'src/app/application/cart/commands/decrease-product-cart/decrease-product-cart.command';
 import { DeleteProductCartCommand } from 'src/app/application/cart/commands/delete-product-cart/delete-product-cart.command';
-import { UpdateProductCartCommand } from 'src/app/application/cart/commands/update-product-cart/update-product-cart.command';
+import { IncreaseProductCartCommand } from 'src/app/application/cart/commands/increase-product-cart/increase-product-cart.command';
 import { Cart } from 'src/app/domain/entities/cart.model';
 
 @Component({
@@ -14,7 +15,8 @@ export class ProductCartComponent implements OnInit {
 
     constructor(
         private _deleteProductCart: DeleteProductCartCommand,
-        private _updateProductCart: UpdateProductCartCommand
+        private _increaseProductCart: IncreaseProductCartCommand,
+        private _decreaseProductCart: DecreaseProductCartCommand
     ) { }
 
     ngOnInit() { }
@@ -24,16 +26,13 @@ export class ProductCartComponent implements OnInit {
     }
 
     public incrementQuantityProductCart(idProductCart: string) {
-        this._updateProductCart.execute({
-            idProductCart: idProductCart,
-            increment: true,
-        });
+
+        this._increaseProductCart.execute(idProductCart);
     }
 
     public decrementQuantityProductCart(idProductCart: string) {
-        this._updateProductCart.execute({
-            idProductCart: idProductCart,
-            increment: false,
-        });
+
+        this._decreaseProductCart.execute(idProductCart);
+
     }
 }

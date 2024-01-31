@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { firstValueFrom } from 'rxjs';
+import { SetPurchaseOrderCommand } from 'src/app/application/purchase-order/commands/set-purchase-order/set-purchase-order.command';
 import { Cart } from 'src/app/domain/entities/cart.model';
-import { Product } from 'src/app/domain/entities/product.model';
 import { CartRepository } from 'src/app/domain/repositories/cart.repository';
 import { ProductRepository } from 'src/app/domain/repositories/product.repository';
 import { v4 as uuidv4 } from 'uuid';
 import { RegisterProductCartCommand } from './register-product-cart.command';
-import { SetPurchaseOrderCommand } from 'src/app/application/purchase-order/commands/set-purchase-order/set-purchase-order.command';
 
 @Injectable({
     providedIn: 'root',
@@ -21,39 +19,31 @@ export class RegisterProductCartCommandHandler implements RegisterProductCartCom
         private _setPurchaseOrder: SetPurchaseOrderCommand
     ) { }
 
-    async execute(idProduct: number): Promise<boolean> {
+    public async execute(idProduct: number): Promise<boolean> {
 
-        if (this.isProductAlreadyInCart(idProduct)) {
+        const productCart = this._cartRepository.getProductCartByProductId(idProduct)
+
+        if (productCart) {
+            
             this._alertService.warning(`Ya se encuentra en el carrito`);
-            return false;
+            return Promise.resolve(false)
         }
 
-        const product = await this._productRepository.getProductById(idProduct);
+        const productCartRegister = await this.createProductCartFromProduct(idProduct)
 
-        const productCart = this.createProductCartFromProduct(product);
-
-        const products = await firstValueFrom(this._cartRepository.getProductsCart())
-
-        products.push(productCart)
-
-        const isRegister = await this._cartRepository.updateProductsCart(products);
+        const isRegister = await this._cartRepository.registerProductCart(productCartRegister);
 
         if (isRegister) {
             this._alertService.success('Se añadio correctamente');
-            this._setPurchaseOrder.execute(products)
+            // this._setPurchaseOrder.execute(products)
         }
 
-        return isRegister;
+        return Promise.resolve(isRegister);
     }
 
-    private isProductAlreadyInCart(idProduct: number): boolean {
+    private async createProductCartFromProduct(idProduct: number): Promise<Cart> {
 
-        const productCartExist = this._cartRepository.getProductCartByProductId(idProduct)
-
-        return productCartExist ? true : false;
-    }
-
-    private createProductCartFromProduct(product: Product): Cart {
+        const product = await this._productRepository.getProductById(idProduct)
 
         const productCart: Cart = {
             id: uuidv4(),

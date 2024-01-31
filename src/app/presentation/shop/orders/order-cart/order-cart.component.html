@@ -1,7 +1,7 @@
 <section class="order-cart">
     <div class="container">
 
-        <div *ngIf="products.length" class="row">
+        <div *ngIf="products()?.length" class="row">
 
             <div class="col-xl-9 col-lg-8">
                 <div class="order-cart__products">
@@ -18,7 +18,7 @@
                         </thead>
 
                         <tbody>
-                            <tr [@slideFadeLeft] *ngFor="let product of products">
+                            <tr [@slideFadeLeft] *ngFor="let product of products()">
 
                                 <!-- Delete product to wishlist -->
                                 <td>
@@ -118,7 +118,7 @@
 
         </div>
 
-        <ng-container *ngIf="!products.length">
+        <ng-container *ngIf="!products()?.length">
             <app-product-empty [name]="'Shopping Cart'"></app-product-empty>
         </ng-container>
 
