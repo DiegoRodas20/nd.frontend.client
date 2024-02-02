@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { SetPurchaseOrderCommand } from "src/app/application/purchase-order/commands/set-purchase-order/set-purchase-order.command";
 import { CartRepository } from "src/app/domain/repositories/cart.repository";
+import { PurchaseOrderRepository } from "src/app/domain/repositories/purchase-order.repository";
 import { DecreaseProductCartCommand } from "./decrease-product-cart.command";
 
 @Injectable({
@@ -10,16 +10,19 @@ export class DecreaseProductCartCommandHandler implements DecreaseProductCartCom
 
     constructor(
         private _cartRepository: CartRepository,
-        private _setPurchaseOrder: SetPurchaseOrderCommand
+        private _purchaseOrder: PurchaseOrderRepository
     ) { }
 
     async execute(idProductCart: string): Promise<boolean> {
 
         const result = await this._cartRepository.decreaseQuantityProductCart(idProductCart)
 
-        // if (isDeleted) {
-        //     this._setPurchaseOrder.execute(productsFilter)
-        // }
+        if (result) {
+
+            const updatedProductCart = await this._cartRepository.getProductCartById(idProductCart)
+
+            this._purchaseOrder.updatePurchaseOrder(updatedProductCart)
+        }
 
         return Promise.resolve(result)
     }

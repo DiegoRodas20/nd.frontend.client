@@ -118,7 +118,7 @@
                                 <h4>Total</h4>
                             </li>
 
-                            <li *ngFor="let product of purchaseOrder?.products" class="tp-order-info-list-desc">
+                            <li *ngFor="let product of purchaseOrder()?.products" class="tp-order-info-list-desc">
                                 <p>
                                     {{product.name}}
                                     <span> x {{product.quantity}}</span>
@@ -128,7 +128,7 @@
 
                             <li class="tp-order-info-list-subtotal">
                                 <span>Subtotal</span>
-                                <span>${{purchaseOrder?.totalPrice}}</span>
+                                <span>${{purchaseOrder().totalPrice}}</span>
                             </li>
 
                             <!-- <li class="tp-order-info-list-shipping">
@@ -151,7 +151,7 @@
 
                             <li class="tp-order-info-list-total">
                                 <span>Total</span>
-                                <span>${{purchaseOrder?.totalPrice}}</span>
+                                <span>${{purchaseOrder().totalPrice}}</span>
                             </li>
 
                         </ul>

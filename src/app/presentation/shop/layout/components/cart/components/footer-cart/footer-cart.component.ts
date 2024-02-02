@@ -1,7 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Signal } from "@angular/core";
 import { RouteService } from "src/app/shared/services/route.service";
 import { ShoppingCartService } from "../../cart.service";
 import { GetPurchaseOrderQuery } from "src/app/application/purchase-order/queries/get-purchase-order/get-purchase-order.query";
+import { PurchaseOrder } from "src/app/domain/entities/purchase-order.model";
 
 @Component({
     selector: 'app-footer-cart',
@@ -11,7 +12,7 @@ import { GetPurchaseOrderQuery } from "src/app/application/purchase-order/querie
 
 export class FooterCartComponent implements OnInit {
 
-    totalPrice: number = 0
+    purchaseOrder!: Signal<PurchaseOrder>
 
     constructor(
         public routeService: RouteService,
@@ -29,8 +30,6 @@ export class FooterCartComponent implements OnInit {
 
     public getPurchaseOrder() {
 
-        this._getPurchaseOrder.execute().subscribe(result => {
-            this.totalPrice = result.totalPrice
-        })
+        this.purchaseOrder = this._getPurchaseOrder.execute()
     }
 }

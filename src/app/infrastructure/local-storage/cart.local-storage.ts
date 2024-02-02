@@ -13,6 +13,7 @@ export class CartLocalStorage implements CartRepository {
     }
 
     private setProductsCart() {
+
         const storedData = localStorage.getItem(this.localStorageKey);
 
         if (storedData) {
@@ -20,11 +21,22 @@ export class CartLocalStorage implements CartRepository {
         }
     }
 
+    private updateStorageProductsCart() {
+        localStorage.setItem(this.localStorageKey, JSON.stringify(this.productsCart()))
+    }
+
     public getProductsCart(): Signal<Cart[]> {
 
         return this.productsCart
     }
 
+    public getProductCartById(idProductCart: string): Promise<Cart | undefined>{
+
+        const productCart = this.productsCart().find(value => value.id === idProductCart)
+
+        return Promise.resolve(productCart)
+    }
+    
     public getProductCartByProductId(idProduct: number): Cart | undefined {
 
         const productCart = this.productsCart().find(
@@ -38,12 +50,16 @@ export class CartLocalStorage implements CartRepository {
 
         this.productsCart().push(productCart)
 
+        this.updateStorageProductsCart()
+
         return Promise.resolve(true)
     }
 
     public deleteProductCart(idProductCart: string): Promise<boolean> {
 
         this.productsCart.update(() => this.productsCart().filter(value => value.id !== idProductCart))
+
+        this.updateStorageProductsCart()
 
         return Promise.resolve(true)
     }
@@ -56,13 +72,13 @@ export class CartLocalStorage implements CartRepository {
 
                 if (productCart.id === idProductCart) {
                     productCart.quantity = productCart.quantity + 1
-                    productCart.priceCart = productCart.priceProduct * (productCart.quantity + 1)
+                    productCart.priceCart = productCart.priceProduct * productCart.quantity
                 }
 
             })
         })
 
-        localStorage.setItem(this.localStorageKey, JSON.stringify(this.productsCart()))
+        this.updateStorageProductsCart()
 
         return Promise.resolve(true)
     }
@@ -75,13 +91,13 @@ export class CartLocalStorage implements CartRepository {
 
                 if (productCart.id === idProductCart) {
                     productCart.quantity = productCart.quantity - 1
-                    productCart.priceCart = productCart.priceProduct * (productCart.quantity - 1)
+                    productCart.priceCart = productCart.priceProduct * productCart.quantity
                 }
 
             })
         })
 
-        localStorage.setItem(this.localStorageKey, JSON.stringify(this.productsCart()))
+        this.updateStorageProductsCart()
 
         return Promise.resolve(true)
     }

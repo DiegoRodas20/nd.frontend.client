@@ -1,15 +1,15 @@
-import { BehaviorSubject, Observable } from "rxjs";
+import { Signal, WritableSignal, signal } from "@angular/core";
+import { Cart } from "src/app/domain/entities/cart.model";
 import { PurchaseOrder } from "src/app/domain/entities/purchase-order.model";
 import { PurchaseOrderRepository } from "src/app/domain/repositories/purchase-order.repository";
 
 export class PurchaseOrderLocalStorage implements PurchaseOrderRepository {
 
     private localStorageKey: string = 'purchase_order'
-    private items = new BehaviorSubject<PurchaseOrder>({
+    private purchaseOrder: WritableSignal<PurchaseOrder> = signal({
         products: [],
         totalPrice: 0
     })
-    private items$ = this.items.asObservable();
 
     constructor() {
         this.initializePurchaseOrder()
@@ -20,27 +20,50 @@ export class PurchaseOrderLocalStorage implements PurchaseOrderRepository {
         const storedData = localStorage.getItem(this.localStorageKey)
 
         if (storedData) {
-            this.items.next(JSON.parse(storedData))
+            this.purchaseOrder.set(JSON.parse(storedData))
         }
     }
 
-    public registerPurchaseOrder(purchaseOrder: PurchaseOrder): Promise<boolean> {
-        throw new Error("Method not implemented.");
+    private updateStoragePurchaseOrder() {
+        localStorage.setItem(this.localStorageKey, JSON.stringify(this.purchaseOrder()))
     }
 
-    public setPurchaseOrder(purchaseOrder: PurchaseOrder): Promise<boolean> {
+    public getPurchaseOrder(): Signal<PurchaseOrder> {
+        return this.purchaseOrder
+    }
 
-        this.items.next(purchaseOrder)
-        
-        localStorage.setItem(this.localStorageKey, JSON.stringify(purchaseOrder))
+    public updatePurchaseOrder(productCart: Cart): Promise<boolean> {
 
-        return new Promise(resolve => {
-            resolve(true)
+        this.purchaseOrder().products.forEach(value => {
+            if (value.id === productCart.id) {
+                value.quantity = productCart.quantity
+            }
         })
+
+        this.purchaseOrder().totalPrice = this.purchaseOrder().products.reduce((total, product) => total + product.priceCart, 0)
+
+        this.updateStoragePurchaseOrder()
+
+        return Promise.resolve(true)
     }
 
-    public getPurchaseOrder(): Observable<PurchaseOrder> {
-        return this.items$
+    public addProductToPurchaseOrder(productCart: Cart): Promise<boolean> {
+
+        this.purchaseOrder().products.push(productCart)
+        this.purchaseOrder().totalPrice = this.purchaseOrder().products.reduce((total, product) => total + product.priceCart, 0)
+
+        this.updateStoragePurchaseOrder()
+
+        return Promise.resolve(true)
     }
 
+    public deleteProductToPurchaseOrder(idProductCart: string): Promise<boolean> {
+
+        this.purchaseOrder().products = this.purchaseOrder().products.filter(value => value.id !== idProductCart)
+        this.purchaseOrder().totalPrice = this.purchaseOrder().products.reduce((total, product) => total + product.priceCart, 0)
+
+        this.updateStoragePurchaseOrder()
+
+        return Promise.resolve(true)
+    }
 }

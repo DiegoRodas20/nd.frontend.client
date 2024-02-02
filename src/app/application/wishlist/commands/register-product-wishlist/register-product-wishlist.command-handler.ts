@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
-import { Product } from "src/app/domain/entities/product.model";
 import { Wishlist } from "src/app/domain/entities/wishlist.model";
 import { ProductRepository } from "src/app/domain/repositories/product.repository";
 import { WishlistRepository } from "src/app/domain/repositories/wishlist.repository";
@@ -18,34 +17,28 @@ export class RegisterProductWishlistCommandHandler implements RegisterProductWis
 
     async execute(idProduct: number): Promise<boolean> {
 
-        if (this.isProductAlreadyInWishlist(idProduct)) {
+        const productWishlistExist = await this._wishlistRepository.getProductWishlistByProductId(idProduct)
+
+        if (productWishlistExist) {
+
             this._alertService.warning(`Ya se encuentra en el wishlist`)
-            return false
+            return Promise.resolve(false)
         }
 
-        const product = await this._productRepository.getProductById(idProduct)
+        const productWishlist = await this.createProductWishlistFromProduct(idProduct)
 
-        const productWishlist = this.createProductWishlistFromProduct(product)
+        const result = await this._wishlistRepository.registerProductWishlist(productWishlist)
 
-        var idProductWishlist = await this._wishlistRepository.registerProductWishlist(productWishlist)
-
-        if (idProductWishlist) {
+        if (result) {
             this._alertService.success(`Se añadio correctamente`)
         }
 
-        return true
+        return Promise.resolve(true)
     }
 
-    private isProductAlreadyInWishlist(idProduct: number): boolean {
+    private async createProductWishlistFromProduct(idProduct: number): Promise<Wishlist> {
 
-        const result = this._wishlistRepository.getProductWishlistByProductId(idProduct)
-            ? true
-            : false
-
-        return result
-    }
-
-    public createProductWishlistFromProduct(product: Product): Wishlist {
+        const product = await this._productRepository.getProductById(idProduct)
 
         const productWishlist: Wishlist = {
             id: uuidv4(),

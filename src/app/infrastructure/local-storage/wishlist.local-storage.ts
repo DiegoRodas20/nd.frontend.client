@@ -21,7 +21,7 @@ export class WishlistLocalStorage implements WishlistRepository {
         return this.products$;
     }
 
-    public getProductWishlistByProductId(idProduct: number): Wishlist | any {
+    public getProductWishlistByProductId(idProduct: number): Wishlist | undefined {
 
         var result = this.products.value.find(
             (productWishlist) => productWishlist.idProduct === idProduct
@@ -31,6 +31,7 @@ export class WishlistLocalStorage implements WishlistRepository {
     }
 
     public registerProductWishlist(productWishlist: Wishlist): Promise<string> {
+
         const value = this.products.getValue();
 
         value.push(productWishlist);
@@ -38,21 +39,17 @@ export class WishlistLocalStorage implements WishlistRepository {
 
         localStorage.setItem(this.localStorageKey, JSON.stringify(value));
 
-        return new Promise((resolve) => {
-            resolve(productWishlist.id);
-        });
+        return Promise.resolve(productWishlist.id)
     }
 
     public deleteProductWishlist(idProductWishlist: string): Promise<boolean> {
-        const value = this.products
-                          .getValue()
-                          .filter(productWishlist => productWishlist.id != idProductWishlist);
+
+        const value = this.products.getValue()
+            .filter(productWishlist => productWishlist.id != idProductWishlist);
 
         this.products.next(value);
         localStorage.setItem(this.localStorageKey, JSON.stringify(value));
 
-        return new Promise((resolve) => {
-            resolve(true);
-        });
+        return Promise.resolve(true)
     }
 }

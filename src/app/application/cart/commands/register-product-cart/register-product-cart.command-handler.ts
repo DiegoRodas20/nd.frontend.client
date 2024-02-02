@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { SetPurchaseOrderCommand } from 'src/app/application/purchase-order/commands/set-purchase-order/set-purchase-order.command';
+import { AddProductPurchaseOrderCommand } from 'src/app/application/purchase-order/commands/add-product-purchase-order/add-product-purchase-order.command';
 import { Cart } from 'src/app/domain/entities/cart.model';
 import { CartRepository } from 'src/app/domain/repositories/cart.repository';
 import { ProductRepository } from 'src/app/domain/repositories/product.repository';
@@ -16,7 +16,7 @@ export class RegisterProductCartCommandHandler implements RegisterProductCartCom
         private _alertService: ToastrService,
         private _cartRepository: CartRepository,
         private _productRepository: ProductRepository,
-        private _setPurchaseOrder: SetPurchaseOrderCommand
+        private _addProductPurchaseOrder: AddProductPurchaseOrderCommand
     ) { }
 
     public async execute(idProduct: number): Promise<boolean> {
@@ -24,7 +24,6 @@ export class RegisterProductCartCommandHandler implements RegisterProductCartCom
         const productCart = this._cartRepository.getProductCartByProductId(idProduct)
 
         if (productCart) {
-            
             this._alertService.warning(`Ya se encuentra en el carrito`);
             return Promise.resolve(false)
         }
@@ -35,7 +34,7 @@ export class RegisterProductCartCommandHandler implements RegisterProductCartCom
 
         if (isRegister) {
             this._alertService.success('Se añadio correctamente');
-            // this._setPurchaseOrder.execute(products)
+            this._addProductPurchaseOrder.execute(productCartRegister)
         }
 
         return Promise.resolve(isRegister);

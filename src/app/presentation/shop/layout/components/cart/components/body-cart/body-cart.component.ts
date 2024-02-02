@@ -21,8 +21,7 @@ export class BodyCartComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        // this.getProductsCart()
-
+        
         this.productsCart = this._getProductsCart.execute()
     }
 }

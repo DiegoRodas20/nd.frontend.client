@@ -5,7 +5,7 @@ export abstract class WishlistRepository {
 
     abstract getProductsWishlist(): Observable<Wishlist[]>
 
-    abstract getProductWishlistByProductId(idProduct: number): Wishlist
+    abstract getProductWishlistByProductId(idProduct: number): Wishlist | undefined
 
     abstract registerProductWishlist(productWishlist: Wishlist): Promise<string>
 

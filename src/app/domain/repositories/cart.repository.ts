@@ -5,6 +5,8 @@ export abstract class CartRepository {
 
     abstract getProductsCart(): Signal<Cart[]>
 
+    abstract getProductCartById(idProductCart: string): Promise<Cart | undefined>
+
     abstract getProductCartByProductId(idProduct: number): Cart | undefined
 
     abstract registerProductCart(productCart: Cart): Promise<boolean>

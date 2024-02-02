@@ -20,7 +20,7 @@ import { RouteService } from "src/app/shared/services/route.service";
 export class OrderCartComponent implements OnInit {
 
     products: Signal<Cart[]> = signal([])
-    purchaseOrder!: PurchaseOrder
+    purchaseOrder!: Signal<PurchaseOrder>
 
     constructor(
         public routeService: RouteService,
@@ -42,13 +42,11 @@ export class OrderCartComponent implements OnInit {
     }
 
     public getPurchaseOrder() {
-        this._getPurchaseOrder.execute().subscribe(result => {
-            this.purchaseOrder = result
-        })
+        this.purchaseOrder = this._getPurchaseOrder.execute()
     }
 
     public deleteProductCart(idProductCart: string) {
-        
+
         this._deleteProductCart.execute(idProductCart)
     }
 

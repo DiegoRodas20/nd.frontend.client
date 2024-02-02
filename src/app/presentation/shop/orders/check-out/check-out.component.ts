@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Signal } from "@angular/core";
 import { GetPurchaseOrderQuery } from "src/app/application/purchase-order/queries/get-purchase-order/get-purchase-order.query";
 import { PurchaseOrder } from "src/app/domain/entities/purchase-order.model";
 
@@ -10,7 +10,7 @@ import { PurchaseOrder } from "src/app/domain/entities/purchase-order.model";
 
 export class CheckOutComponent implements OnInit {
 
-    purchaseOrder?: PurchaseOrder
+    purchaseOrder!: Signal<PurchaseOrder>
 
     constructor(
         private _getPurchaseOrder: GetPurchaseOrderQuery
@@ -21,8 +21,7 @@ export class CheckOutComponent implements OnInit {
     }
 
     public getPurchaseOrder() {
-        this._getPurchaseOrder.execute().subscribe(result => {
-            this.purchaseOrder = result
-        })
+
+        this.purchaseOrder = this._getPurchaseOrder.execute()
     }
 }

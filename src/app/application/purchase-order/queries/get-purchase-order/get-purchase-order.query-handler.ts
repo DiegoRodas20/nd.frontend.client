@@ -1,5 +1,4 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Injectable, Signal } from "@angular/core";
 import { PurchaseOrder } from "src/app/domain/entities/purchase-order.model";
 import { PurchaseOrderRepository } from "src/app/domain/repositories/purchase-order.repository";
 import { GetPurchaseOrderQuery } from "./get-purchase-order.query";
@@ -13,9 +12,11 @@ export class GetPurchaseOrderQueryHandler implements GetPurchaseOrderQuery {
         private _purchaseOrderRepository: PurchaseOrderRepository
     ) { }
 
-    execute(): Observable<PurchaseOrder> {
+    execute(): Signal<PurchaseOrder> {
 
-        return this._purchaseOrderRepository.getPurchaseOrder()
+        const purchaseOrder = this._purchaseOrderRepository.getPurchaseOrder()
+
+        return purchaseOrder
     }
 
 }

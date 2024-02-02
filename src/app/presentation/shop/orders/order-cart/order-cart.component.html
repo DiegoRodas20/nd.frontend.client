@@ -53,19 +53,12 @@
                                 <!-- Quantity -->
                                 <td class="order-cart__quantity">
                                     <div class="order-cart__input">
-                                        <button 
-                                            type="button" 
-                                            class="order-cart__minus"
+                                        <button type="button" class="order-cart__minus"
                                             (click)="decrementQuantityProductCart(product.id)">
                                             <i class="fa-regular fa-minus fa-2xs"></i>
                                         </button>
-                                        <input 
-                                            type="text"
-                                            [value]="product.quantity" 
-                                            readonly />
-                                        <button 
-                                            type="button"
-                                            class="order-cart__plus" 
+                                        <input type="text" [value]="product.quantity" readonly />
+                                        <button type="button" class="order-cart__plus"
                                             (click)="incrementQuantityProductCart(product.id)">
                                             <i class="fa-regular fa-plus fa-2xs"></i>
                                         </button>
@@ -82,7 +75,7 @@
                 <div class="tp-cart-checkout-wrapper">
                     <div class="tp-cart-checkout-top d-flex align-items-center justify-content-between">
                         <span class="tp-cart-checkout-top-title">Subtotal</span>
-                        <span class="tp-cart-checkout-top-price">${{purchaseOrder.totalPrice}}</span>
+                        <span class="tp-cart-checkout-top-price">${{purchaseOrder().totalPrice}}</span>
                     </div>
 
                     <div class="tp-cart-checkout-shipping">
@@ -106,7 +99,7 @@
 
                     <div class="tp-cart-checkout-total d-flex align-items-center justify-content-between">
                         <span>Total</span>
-                        <span>${{purchaseOrder.totalPrice}}</span>
+                        <span>${{purchaseOrder().totalPrice}}</span>
                     </div>
 
                     <div class="tp-cart-checkout-proceed">
