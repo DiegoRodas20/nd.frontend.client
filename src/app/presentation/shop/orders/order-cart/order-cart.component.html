@@ -72,40 +72,50 @@
             </div>
 
             <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="tp-cart-checkout-wrapper">
-                    <div class="tp-cart-checkout-top d-flex align-items-center justify-content-between">
-                        <span class="tp-cart-checkout-top-title">Subtotal</span>
-                        <span class="tp-cart-checkout-top-price">${{purchaseOrder().totalPrice}}</span>
+                <div class="order-cart__checkout">
+
+                    <div class="order-cart__checkout-top d-flex align-items-center justify-content-between">
+                        <span>Subtotal</span>
+                        <span>${{purchaseOrder().totalPrice}}</span>
                     </div>
 
-                    <div class="tp-cart-checkout-shipping">
-                        <h4 class="tp-cart-checkout-shipping-title">Shipping</h4>
+                    <div class="order-cart__checkout-shipping">
+                        
+                        <h4 class="order-cart__checkout-shipping-title">Shipping</h4>
 
-                        <div class="tp-cart-checkout-shipping-option-wrapper">
-                            <div class="tp-cart-checkout-shipping-option">
+                        <div class="order-cart__checkout-shipping-option-wrapper">
+
+                            <div class="order-cart__checkout-shipping-option">
                                 <input id="flat_rate" type="radio" name="shipping" />
                                 <label for="flat_rate">Flat rate: <span>$20.00</span></label>
                             </div>
-                            <div class="tp-cart-checkout-shipping-option">
+
+                            <div class="order-cart__checkout-shipping-option">
                                 <input id="local_pickup" type="radio" name="shipping" />
                                 <label for="local_pickup">Local pickup: <span> $25.00</span></label>
                             </div>
-                            <div class="tp-cart-checkout-shipping-option">
+
+                            <div class="order-cart__checkout-shipping-option">
                                 <input id="free_shipping" type="radio" name="shipping" />
                                 <label for="free_shipping">Free shipping</label>
                             </div>
+
                         </div>
                     </div>
 
-                    <div class="tp-cart-checkout-total d-flex align-items-center justify-content-between">
+                    <div class="order-cart__checkout-total d-flex align-items-center justify-content-between">
                         <span>Total</span>
                         <span>${{purchaseOrder().totalPrice}}</span>
                     </div>
 
-                    <div class="tp-cart-checkout-proceed">
-                        <a [routerLink]="routeService.checkOutRoute" class="tp-cart-checkout-btn w-100">Proceed to
-                            Checkout</a>
+                    <div>
+                        <a 
+                            [routerLink]="routeService.checkOutRoute" 
+                            class="order-cart__checkout-btn w-100">
+                            Proceed to Checkout
+                        </a>
                     </div>
+
                 </div>
             </div>
 
