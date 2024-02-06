@@ -30,13 +30,13 @@ export class CartLocalStorage implements CartRepository {
         return this.productsCart
     }
 
-    public getProductCartById(idProductCart: string): Promise<Cart | undefined>{
+    public getProductCartById(idProductCart: string): Promise<Cart | undefined> {
 
         const productCart = this.productsCart().find(value => value.id === idProductCart)
 
         return Promise.resolve(productCart)
     }
-    
+
     public getProductCartByProductId(idProduct: number): Cart | undefined {
 
         const productCart = this.productsCart().find(
@@ -85,15 +85,20 @@ export class CartLocalStorage implements CartRepository {
 
     public decreaseQuantityProductCart(idProductCart: string): Promise<boolean> {
 
-        this.productsCart.mutate(values => {
+        const productCart = this.productsCart().find(item => item.id === idProductCart)
 
+        if (productCart!.quantity <= 1) {
+
+            return Promise.resolve(false)
+        }
+
+        this.productsCart.mutate(values => {
             values.forEach(productCart => {
 
                 if (productCart.id === idProductCart) {
                     productCart.quantity = productCart.quantity - 1
                     productCart.priceCart = productCart.priceProduct * productCart.quantity
                 }
-
             })
         })
 

@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { ToastrService } from "ngx-toastr";
 import { CartRepository } from "src/app/domain/repositories/cart.repository";
 import { PurchaseOrderRepository } from "src/app/domain/repositories/purchase-order.repository";
 import { DecreaseProductCartCommand } from "./decrease-product-cart.command";
@@ -9,6 +10,7 @@ import { DecreaseProductCartCommand } from "./decrease-product-cart.command";
 export class DecreaseProductCartCommandHandler implements DecreaseProductCartCommand {
 
     constructor(
+        private _alertService: ToastrService,
         private _cartRepository: CartRepository,
         private _purchaseOrder: PurchaseOrderRepository
     ) { }
@@ -17,12 +19,14 @@ export class DecreaseProductCartCommandHandler implements DecreaseProductCartCom
 
         const result = await this._cartRepository.decreaseQuantityProductCart(idProductCart)
 
-        if (result) {
+        if (!result) {
+            this._alertService.error('La cantidad minima es de un producto')
 
-            const updatedProductCart = await this._cartRepository.getProductCartById(idProductCart)
-
-            this._purchaseOrder.updatePurchaseOrder(updatedProductCart)
+            return Promise.resolve(result)
         }
+
+        const updatedProductCart = await this._cartRepository.getProductCartById(idProductCart)
+        this._purchaseOrder.updatePurchaseOrder(updatedProductCart)
 
         return Promise.resolve(result)
     }

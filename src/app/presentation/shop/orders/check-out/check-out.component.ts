@@ -5,7 +5,7 @@ import { PurchaseOrder } from "src/app/domain/entities/purchase-order.model";
 @Component({
     selector: 'app-check-out',
     templateUrl: 'check-out.component.html',
-    styleUrls: ['./check-out.component.scss'],
+    styleUrls: ['check-out.component.scss'],
 })
 
 export class CheckOutComponent implements OnInit {

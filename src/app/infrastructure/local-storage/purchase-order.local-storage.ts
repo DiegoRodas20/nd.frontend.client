@@ -35,8 +35,10 @@ export class PurchaseOrderLocalStorage implements PurchaseOrderRepository {
     public updatePurchaseOrder(productCart: Cart): Promise<boolean> {
 
         this.purchaseOrder().products.forEach(value => {
+            
             if (value.id === productCart.id) {
                 value.quantity = productCart.quantity
+                value.priceCart = productCart.priceCart
             }
         })
 
