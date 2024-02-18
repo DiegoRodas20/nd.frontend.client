@@ -9,6 +9,7 @@ import { FilterCatalogComponent } from "./catalog/components/body-catalog/compon
 import { ProductCatalogComponent } from "./catalog/components/body-catalog/components/product-catalog/product-catalog.component";
 import { FooterCatalogComponent } from "./catalog/components/footer-catalog/footer-catalog.component";
 import { HeaderCatalogComponent } from "./catalog/components/header-catalog/header-catalog.component";
+import { ProductDetailComponent } from "./product-detail/product-detail.component";
 import { ProductsRoutingModule } from "./products.routing";
 import { WishlistComponent } from "./wish-list/wish-list.component";
 
@@ -19,7 +20,8 @@ const COMPONENTS = [
     FooterCatalogComponent,
     FilterCatalogComponent,
     ProductCatalogComponent,
-    WishlistComponent
+    WishlistComponent,
+    ProductDetailComponent
 ]
 
 @NgModule({
