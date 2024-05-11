@@ -2,19 +2,9 @@
 
 Welcome to **Taran E-Commerce**! This project is a robust implementation of an E-Commerce platform leveraging cutting-edge architectural patterns and technologies including *Clean Architecture*, *Vertical Slice Architecture*, *CQRS*, *Repository Pattern*, and *Dependency Injection*.
 
-## Table of Contents 📜
-
-1. [Introduction](#introduction)
-2. [Architecture Overview](#architecture-overview)
-3. [Features](#features)
-4. [Installation](#installation)
-5. [Usage](#usage)
-6. [Contributing](#contributing)
-7. [License](#license)
-
 ## Introduction 🚀
 
-Angular 16 E-Commerce is a modern and scalable solution for building an E-Commerce platform using Angular version 16. It aims to provide a solid foundation for developing and extending an online shopping application with **maintainability**, **scalability**, and **testability** in mind.
+Taran E-Commerce is a modern and scalable solution for building an E-Commerce platform using Angular version 16. It aims to provide a solid foundation for developing and extending an online shopping application with **maintainability**, **scalability**, and **testability** in mind.
 
 ## Architecture Overview 🏗️
 
@@ -40,8 +30,8 @@ The project is built upon several key architectural principles:
 
 To install the project, follow these steps:
 
-1. Clone the repository: `git clone <repository-url>`
-2. Navigate to the project directory: `cd angular-16-ecommerce`
+1. Clone the repository: `git clone https://github.com/DiegoRodas20/nd.frontend.client.git`
+2. Navigate to the project directory: `cd nd.frontend.client`
 3. Install dependencies: `npm install`
 
 ## Usage 🖥️
