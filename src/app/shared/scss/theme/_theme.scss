@@ -188,3 +188,39 @@ a {
         }
     }
 }
+
+.toast-container .ngx-toastr {
+    color: var(--common-black) !important;
+    background-color: var(--common-white);
+    border-radius: 4px !important;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, .1), 0 2px 15px 0 rgba(0, 0, 0, .05) !important;
+}
+
+.toast-warning {
+    background-image: url('../../../../assets/icons/warning-icon.svg') !important;
+
+    & .toast-progress {
+        background-color: var(--alert-warning);
+        opacity: 1;
+    }
+}
+
+.toast-success {
+
+    background-image: url('../../../../assets/icons/success-icon.svg') !important;
+
+    & .toast-progress {
+        background-color: var(--alert-success);
+        opacity: 1;
+    }
+}
+
+.toast-error {
+
+    background-image: url('../../../../assets/icons/error-icon.svg') !important;
+
+    & .toast-progress {
+        background-color: var(--alert-error);
+        opacity: 1;
+    }
+}

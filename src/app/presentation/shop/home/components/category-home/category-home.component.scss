@@ -1,11 +1,18 @@
 @use 'index' as *;
 
 .product-category {
-    
+
     padding-top: 60px;
     padding-bottom: 15px;
 
-    &-thumb {
+
+    &__item {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    &__thumb {
+
         margin-bottom: 16px;
 
         & a {
@@ -13,8 +20,7 @@
             width: 180px;
             height: 180px;
             background-color: var(--grey-1);
-            background-image: radial-gradient(95.56% 95.56% at 50% 50%, #FFFFFF 0%, #BDDEFF 100%);
-            border-radius: 50%;
+            border-radius: 12%;
             text-align: center;
             display: flex;
             align-items: center;
@@ -28,7 +34,7 @@
         }
     }
 
-    &-content {
+    &__content {
         & p {
             font-weight: 400;
             font-size: 14px;
@@ -36,7 +42,7 @@
         }
     }
 
-    &-title {
+    &__title {
         font-weight: 500;
         font-size: 20px;
         color: var(--common-black);

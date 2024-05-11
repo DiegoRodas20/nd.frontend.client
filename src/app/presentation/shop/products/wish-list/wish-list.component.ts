@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { RegisterProductCartCommand } from "src/app/application/cart/commands/register-product-cart/register-product-cart.command";
 import { DeleteProductWishlistCommand } from "src/app/application/wishlist/commands/delete-product-wishlist/delete-product-wishlist.command";
 import { GetProductsWishlistQuery } from "src/app/application/wishlist/queries/get-products-wishlist/get-products-wishlist.query";
-import { Wishlist } from "src/app/domain/entities/wishlist.model";
+import { Wishlist } from "src/app/domain/wishlist/wishlist.model";
 import { slideFadeLeft } from "src/app/shared/animations/slide-fade-left.animation";
 import { slideTable } from "src/app/shared/animations/slide-table.animation";
 import { RouteService } from "src/app/shared/services/route.service";

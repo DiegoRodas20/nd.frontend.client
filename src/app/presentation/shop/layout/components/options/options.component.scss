@@ -1,0 +1,39 @@
+@use 'index' as *;
+
+.options {
+
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    height: 44px;
+    width: 44px;
+    cursor: pointer;
+    display: block;
+    z-index: 9999999999;
+    opacity: 1;
+    visibility: visible;
+    @include transition();
+
+    @media #{$xs} {
+        right: 20px;
+        bottom: 20px;
+    }
+
+    &__whatsapp {
+
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        line-height: 44px;
+        text-align: center;
+        background: var(--options-whatsapp);
+        box-shadow: 0px 8px 16px rgba(3, 4, 28, 0.3);
+        color: var(--common-white);
+        border-radius: 50%;
+        @include transition();
+
+        &:hover {
+            @include transform(translateY(-4px));
+        }
+    }
+}

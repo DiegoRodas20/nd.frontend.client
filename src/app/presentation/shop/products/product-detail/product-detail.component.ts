@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RegisterProductCartCommand } from "src/app/application/cart/commands/register-product-cart/register-product-cart.command";
 import { GetProductByIdQuery } from "src/app/application/product/queries/get-product-by-id/get-product-by-id.query";
-import { Product } from "src/app/domain/entities/product.model";
+import { Product } from "src/app/domain/product/product.model";
 
 @Component({
     selector: 'app-product-detail',

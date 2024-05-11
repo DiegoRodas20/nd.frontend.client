@@ -1,6 +1,6 @@
 import { Component, OnInit, Signal } from "@angular/core";
 import { GetPurchaseOrderQuery } from "src/app/application/purchase-order/queries/get-purchase-order/get-purchase-order.query";
-import { PurchaseOrder } from "src/app/domain/entities/purchase-order.model";
+import { PurchaseOrder } from "src/app/domain/purchase-order/purchase-order.model";
 
 @Component({
     selector: 'app-check-out',

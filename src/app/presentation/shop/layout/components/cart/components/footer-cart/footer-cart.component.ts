@@ -2,7 +2,7 @@ import { Component, OnInit, Signal } from "@angular/core";
 import { RouteService } from "src/app/shared/services/route.service";
 import { ShoppingCartService } from "../../cart.service";
 import { GetPurchaseOrderQuery } from "src/app/application/purchase-order/queries/get-purchase-order/get-purchase-order.query";
-import { PurchaseOrder } from "src/app/domain/entities/purchase-order.model";
+import { PurchaseOrder } from "src/app/domain/purchase-order/purchase-order.model";
 
 @Component({
     selector: 'app-footer-cart',

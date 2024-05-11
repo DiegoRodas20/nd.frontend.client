@@ -7,11 +7,13 @@ import { BannerHomeComponent } from "./components/banner-home/banner-home.compon
 import { CategoryHomeComponent } from "./components/category-home/category-home.component";
 import { HomeComponent } from "./home.component";
 import { HomeRoutingModule } from "./home.routing";
+import { FeatureHomeComponent } from "./components/feature-home/feature-home.component";
 
 const COMPONENTS = [
     HomeComponent,
     BannerHomeComponent,
-    CategoryHomeComponent
+    CategoryHomeComponent,
+    FeatureHomeComponent
 ]
 
 @NgModule({

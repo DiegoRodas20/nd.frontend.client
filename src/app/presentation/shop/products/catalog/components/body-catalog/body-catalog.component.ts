@@ -1,6 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { GetProductsQuery } from "src/app/application/product/queries/get-products/get-products.query";
-import { Product } from "src/app/domain/entities/product.model";
+import { Component, Input, OnInit } from "@angular/core";
+import { Product } from "src/app/domain/product/product.model";
 import { scaleFadeStagger } from "src/app/shared/animations/scale-fade-stagger.animation";
 
 @Component({
@@ -12,18 +11,14 @@ import { scaleFadeStagger } from "src/app/shared/animations/scale-fade-stagger.a
 
 export class BodyCatalogComponent implements OnInit {
 
-    products: Product[] = []
+    @Input() products: Product[] = []
 
-    constructor(
-        private _getProductsQuery: GetProductsQuery,
-    ) { }
+    constructor() { }
 
-    ngOnInit() {
-        this.getProducts()
-    }
+    ngOnInit() { }
 
-    public getProducts() {
-        this.products = this._getProductsQuery.execute()
-    }
+    // public getProducts() {
+    //     this.products = this._getProductsQuery.execute()
+    // }
 
 }

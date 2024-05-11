@@ -1,9 +1,8 @@
 import { Signal, WritableSignal, signal } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Cart } from 'src/app/domain/entities/cart.model';
-import { CartRepository } from 'src/app/domain/repositories/cart.repository';
+import { Cart } from 'src/app/domain/cart/cart.model';
+import { ICartRepository } from 'src/app/domain/cart/cart.repository';
 
-export class CartLocalStorage implements CartRepository {
+export class CartRepository implements ICartRepository {
 
     private localStorageKey: string = 'cart_products';
     private productsCart: WritableSignal<Cart[]> = signal([])

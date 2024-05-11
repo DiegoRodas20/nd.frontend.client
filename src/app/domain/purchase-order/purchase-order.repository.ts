@@ -1,8 +1,8 @@
 import { Signal } from "@angular/core";
-import { Cart } from "../entities/cart.model";
-import { PurchaseOrder } from "../entities/purchase-order.model";
+import { Cart } from "../cart/cart.model";
+import { PurchaseOrder } from "../purchase-order/purchase-order.model";
 
-export abstract class PurchaseOrderRepository {
+export abstract class IPurchaseOrderRepository {
 
     abstract getPurchaseOrder(): Signal<PurchaseOrder>
 

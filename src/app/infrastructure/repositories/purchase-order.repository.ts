@@ -1,9 +1,9 @@
 import { Signal, WritableSignal, signal } from "@angular/core";
-import { Cart } from "src/app/domain/entities/cart.model";
-import { PurchaseOrder } from "src/app/domain/entities/purchase-order.model";
-import { PurchaseOrderRepository } from "src/app/domain/repositories/purchase-order.repository";
+import { Cart } from "src/app/domain/cart/cart.model";
+import { PurchaseOrder } from "src/app/domain/purchase-order/purchase-order.model";
+import { IPurchaseOrderRepository } from "src/app/domain/purchase-order/purchase-order.repository";
 
-export class PurchaseOrderLocalStorage implements PurchaseOrderRepository {
+export class PurchaseOrderRepository implements IPurchaseOrderRepository {
 
     private localStorageKey: string = 'purchase_order'
     private purchaseOrder: WritableSignal<PurchaseOrder> = signal({

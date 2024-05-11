@@ -4,8 +4,8 @@ import { DeleteProductCartCommand } from "src/app/application/cart/commands/dele
 import { IncreaseProductCartCommand } from "src/app/application/cart/commands/increase-product-cart/increase-product-cart.command";
 import { GetProductsCartQuery } from "src/app/application/cart/queries/get-products-cart/get-products-cart.query";
 import { GetPurchaseOrderQuery } from "src/app/application/purchase-order/queries/get-purchase-order/get-purchase-order.query";
-import { Cart } from "src/app/domain/entities/cart.model";
-import { PurchaseOrder } from "src/app/domain/entities/purchase-order.model";
+import { Cart } from "src/app/domain/cart/cart.model";
+import { PurchaseOrder } from "src/app/domain/purchase-order/purchase-order.model";
 import { slideFadeLeft } from "src/app/shared/animations/slide-fade-left.animation";
 import { slideTable } from "src/app/shared/animations/slide-table.animation";
 import { RouteService } from "src/app/shared/services/route.service";

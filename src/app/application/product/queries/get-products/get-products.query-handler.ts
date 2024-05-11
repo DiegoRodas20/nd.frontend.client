@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { Product } from "src/app/domain/entities/product.model";
-import { ProductRepository } from "src/app/domain/repositories/product.repository";
+import { Product } from "src/app/domain/product/product.model";
 import { GetProductsQuery } from "./get-products.query";
+import { IProductRepository } from "src/app/domain/product/product.repository";
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +9,7 @@ import { GetProductsQuery } from "./get-products.query";
 export class GetProductsQueryHandler implements GetProductsQuery {
 
     constructor(
-        private _productRepository: ProductRepository
+        private _productRepository: IProductRepository
     ) { }
 
     execute(): Product[] {

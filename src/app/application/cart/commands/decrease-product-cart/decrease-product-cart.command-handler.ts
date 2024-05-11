@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
-import { CartRepository } from "src/app/domain/repositories/cart.repository";
-import { PurchaseOrderRepository } from "src/app/domain/repositories/purchase-order.repository";
 import { DecreaseProductCartCommand } from "./decrease-product-cart.command";
+import { ICartRepository } from "src/app/domain/cart/cart.repository";
+import { IPurchaseOrderRepository } from "src/app/domain/purchase-order/purchase-order.repository";
 
 @Injectable({
     providedIn: 'root'
@@ -11,8 +11,8 @@ export class DecreaseProductCartCommandHandler implements DecreaseProductCartCom
 
     constructor(
         private _alertService: ToastrService,
-        private _cartRepository: CartRepository,
-        private _purchaseOrder: PurchaseOrderRepository
+        private _cartRepository: ICartRepository,
+        private _purchaseOrder: IPurchaseOrderRepository
     ) { }
 
     async execute(idProductCart: string): Promise<boolean> {

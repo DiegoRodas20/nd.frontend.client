@@ -1,8 +1,9 @@
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Wishlist } from 'src/app/domain/entities/wishlist.model';
-import { WishlistRepository } from 'src/app/domain/repositories/wishlist.repository';
+import { Wishlist } from 'src/app/domain/wishlist/wishlist.model';
+import { IWishlistRepository } from 'src/app/domain/wishlist/wishlist.repository';
 
-export class WishlistLocalStorage implements WishlistRepository {
+export class WishlistRepository implements IWishlistRepository {
+
     private localStorageKey: string = 'wishlist_products';
     private products = new BehaviorSubject<Wishlist[]>([]);
     private products$ = this.products.asObservable();

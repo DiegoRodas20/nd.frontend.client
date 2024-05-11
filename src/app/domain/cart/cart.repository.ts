@@ -1,7 +1,7 @@
 import { Signal } from "@angular/core";
-import { Cart } from "../entities/cart.model";
+import { Cart } from "../cart/cart.model";
 
-export abstract class CartRepository {
+export abstract class ICartRepository {
 
     abstract getProductsCart(): Signal<Cart[]>
 

@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DecreaseProductCartCommand } from 'src/app/application/cart/commands/decrease-product-cart/decrease-product-cart.command';
 import { DeleteProductCartCommand } from 'src/app/application/cart/commands/delete-product-cart/delete-product-cart.command';
 import { IncreaseProductCartCommand } from 'src/app/application/cart/commands/increase-product-cart/increase-product-cart.command';
-import { Cart } from 'src/app/domain/entities/cart.model';
+import { Cart } from 'src/app/domain/cart/cart.model';
 
 @Component({
     selector: 'app-product-cart',

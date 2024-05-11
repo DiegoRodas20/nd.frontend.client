@@ -1,18 +1,18 @@
 import { Injectable } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
-import { Wishlist } from "src/app/domain/entities/wishlist.model";
-import { ProductRepository } from "src/app/domain/repositories/product.repository";
-import { WishlistRepository } from "src/app/domain/repositories/wishlist.repository";
+import { Wishlist } from "src/app/domain/wishlist/wishlist.model";
 import { v4 as uuidv4 } from 'uuid';
 import { RegisterProductWishlistCommand } from "./register-product-wishlist.command";
+import { IProductRepository } from "src/app/domain/product/product.repository";
+import { IWishlistRepository } from "src/app/domain/wishlist/wishlist.repository";
 
 @Injectable()
 export class RegisterProductWishlistCommandHandler implements RegisterProductWishlistCommand {
 
     constructor(
         private _alertService: ToastrService,
-        private _productRepository: ProductRepository,
-        private _wishlistRepository: WishlistRepository
+        private _productRepository: IProductRepository,
+        private _wishlistRepository: IWishlistRepository
     ) { }
 
     async execute(idProduct: number): Promise<boolean> {

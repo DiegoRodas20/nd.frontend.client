@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { WishlistRepository } from "src/app/domain/repositories/wishlist.repository";
 import { DeleteProductWishlistCommand } from "./delete-product-wishlist.command";
+import { IWishlistRepository } from "src/app/domain/wishlist/wishlist.repository";
 
 @Injectable({
     providedIn: 'root'
@@ -8,7 +8,7 @@ import { DeleteProductWishlistCommand } from "./delete-product-wishlist.command"
 export class DeleteProductWishlistCommandHandler implements DeleteProductWishlistCommand {
 
     constructor(
-        private _wishlistRepository: WishlistRepository
+        private _wishlistRepository: IWishlistRepository
     ) { }
 
     async execute(idProductWishlist: string): Promise<boolean> {

@@ -1,6 +1,6 @@
-import { Product } from "../entities/product.model";
+import { Product } from "../product/product.model";
 
-export abstract class ProductRepository {
+export abstract class IProductRepository {
 
     abstract getProducts(): Product[]
 

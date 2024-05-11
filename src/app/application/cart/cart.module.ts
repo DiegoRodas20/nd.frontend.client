@@ -10,6 +10,7 @@ import { RegisterProductCartCommandHandler } from "./commands/register-product-c
 import { GetProductsCartQuery } from "./queries/get-products-cart/get-products-cart.query";
 import { GetProductsCartQueryHandler } from "./queries/get-products-cart/get-products-cart.query-handler";
 
+
 @NgModule({
     providers: [
         { provide: GetProductsCartQuery, useClass: GetProductsCartQueryHandler },

@@ -1,7 +1,7 @@
 import { Injectable, Signal } from "@angular/core";
-import { Cart } from "src/app/domain/entities/cart.model";
-import { CartRepository } from "src/app/domain/repositories/cart.repository";
+import { Cart } from "src/app/domain/cart/cart.model";
 import { GetProductsCartQuery } from "./get-products-cart.query";
+import { ICartRepository } from "src/app/domain/cart/cart.repository";
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +9,7 @@ import { GetProductsCartQuery } from "./get-products-cart.query";
 export class GetProductsCartQueryHandler implements GetProductsCartQuery {
 
     constructor(
-        private _cartRepository: CartRepository
+        private _cartRepository: ICartRepository
     ) { }
 
     execute(): Signal<Cart[]> {

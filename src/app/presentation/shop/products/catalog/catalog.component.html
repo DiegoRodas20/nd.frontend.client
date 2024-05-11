@@ -4,8 +4,12 @@
             <div class="col-xl-12">
                 <div class="shop-main-wrapper">
                     <app-header-catalog></app-header-catalog>
-                    <app-body-catalog></app-body-catalog>
-                    <app-footer-catalog></app-footer-catalog>
+                    <app-body-catalog [products]="displayedProducts"></app-body-catalog>
+                    <app-pagination 
+                        [itemsPerPage]="itemsPerPage" 
+                        [totalItems]="products.length"
+                        (pageChanged)="onPageChange($event)">
+                    </app-pagination>
                 </div>
             </div>
         </div>

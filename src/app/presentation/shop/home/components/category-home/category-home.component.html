@@ -2,83 +2,22 @@
     <div class="container">
         <div class="row row-cols-xl-5 row-cols-lg-5 row-cols-md-4">
 
-            <div class="col">
-                <div class="product-category-item text-center mb-40">
-                    <div class="product-category-thumb fix">
-                        <a href="shop-category.html">
-                            <img src="assets/img/product/category/product-cat-1.png" alt="product-category">
-                        </a>
-                    </div>
-                    <div class="product-category-content">
-                        <h3 class="product-category-title">
-                            <a href="shop-category.html">Headphones</a>
-                        </h3>
-                        <p>20 Product</p>
-                    </div>
-                </div>
-            </div>
+            <div *ngFor="let category of categories" class="col">
+                <div class="product-category__item">
 
-            <div class="col">
-                <div class="product-category-item text-center mb-40">
-                    <div class="product-category-thumb fix">
-                        <a href="shop-category.html">
-                            <img src="assets/img/product/category/product-cat-2.png" alt="product-category">
+                    <div class="product-category__thumb">
+                        <a [href]="category.link">
+                            <img [src]="category.image" alt="product-category">
                         </a>
                     </div>
-                    <div class="product-category-content">
-                        <h3 class="product-category-title">
-                            <a href="shop-category.html">Mobile Phone</a>
-                        </h3>
-                        <p>25 Product</p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col">
-                <div class="product-category-item text-center mb-40">
-                    <div class="product-category-thumb fix">
-                        <a href="shop-category.html">
-                            <img src="assets/img/product/category/product-cat-3.png" alt="product-category">
-                        </a>
-                    </div>
-                    <div class="product-category-content">
-                        <h3 class="product-category-title">
-                            <a href="shop-category.html">CPU Heat Pipes</a>
+                    <div class="product-category__content">
+                        <h3 class="product-category__title">
+                            <a [href]="category.link">{{category.name}}</a>
                         </h3>
-                        <p>57 Product</p>
+                        <p>{{category.product_count}} Product</p>
                     </div>
-                </div>
-            </div>
 
-            <div class="col">
-                <div class="product-category-item text-center mb-40">
-                    <div class="product-category-thumb fix">
-                        <a href="shop-category.html">
-                            <img src="assets/img/product/category/product-cat-4.png" alt="product-category">
-                        </a>
-                    </div>
-                    <div class="product-category-content">
-                        <h3 class="product-category-title">
-                            <a href="shop-category.html">Smart Watch</a>
-                        </h3>
-                        <p>44 Product</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="product-category-item text-center mb-40">
-                    <div class="product-category-thumb fix">
-                        <a href="shop-category.html">
-                            <img src="assets/img/product/category/product-cat-5.png" alt="product-category">
-                        </a>
-                    </div>
-                    <div class="product-category-content">
-                        <h3 class="product-category-title">
-                            <a href="shop-category.html">With Bluetooth </a>
-                        </h3>
-                        <p>81 Product</p>
-                    </div>
                 </div>
             </div>
 

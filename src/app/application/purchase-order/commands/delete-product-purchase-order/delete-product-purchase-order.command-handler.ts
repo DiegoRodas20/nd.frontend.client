@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { PurchaseOrderRepository } from "src/app/domain/repositories/purchase-order.repository";
 import { DeleteProductPurchaseOrderCommand } from "./delete-product-purchase-order.command";
+import { IPurchaseOrderRepository } from "src/app/domain/purchase-order/purchase-order.repository";
 
 @Injectable({
     providedIn: 'root'
@@ -8,7 +8,7 @@ import { DeleteProductPurchaseOrderCommand } from "./delete-product-purchase-ord
 export class DeleteProductPurchaseOrderCommandHandler implements DeleteProductPurchaseOrderCommand {
 
     constructor(
-        private _purchaseOrderRepository: PurchaseOrderRepository
+        private _purchaseOrderRepository: IPurchaseOrderRepository
     ) { }
 
     async execute(idProductCart: string): Promise<boolean> {

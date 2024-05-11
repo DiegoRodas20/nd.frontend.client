@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
 import { RegisterProductCartCommand } from "src/app/application/cart/commands/register-product-cart/register-product-cart.command";
 import { RegisterProductWishlistCommand } from "src/app/application/wishlist/commands/register-product-wishlist/register-product-wishlist.command";
-import { Product } from "src/app/domain/entities/product.model";
+import { Product } from "src/app/domain/product/product.model";
 import { RouteService } from "src/app/shared/services/route.service";
 
 @Component({

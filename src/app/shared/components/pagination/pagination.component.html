@@ -7,15 +7,15 @@
                         <i class="fa-regular fa-chevron-left"></i>
                     </a>
                 </li>
-                <li>
-                    <a href="shop.html">1</a>
+
+                <li *ngFor="let page of getPages">
+                    <a (click)="changePage(page)">{{page}}</a>
                 </li>
-                <li>
+
+                <!-- <li>
                     <span class="current">2</span>
-                </li>
-                <li>
-                    <a href="shop.html">3</a>
-                </li>
+                </li> -->
+
                 <li>
                     <a href="shop.html">
                         <i class="fa-regular fa-chevron-right"></i>

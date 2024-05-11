@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { GetProductsByNameQuery } from "src/app/application/product/queries/get-product-by-name/get-products-by-name.query";
-import { Product } from "src/app/domain/entities/product.model";
+import { Product } from "src/app/domain/product/product.model";
 import { RouteService } from "src/app/shared/services/route.service";
 
 @Component({

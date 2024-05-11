@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ApplicationModule } from '../application/application.module';
-import { DomainModule } from '../domain/domain.module';
 import { PresentationComponent } from './presentation.component';
 import { PresentationRoutingModule } from './presentation.routing';
+import { InfrastructureModule } from '../infrastructure/infrastructure.module';
 
 
 @NgModule({
@@ -20,8 +20,11 @@ import { PresentationRoutingModule } from './presentation.routing';
         FormsModule,
         ReactiveFormsModule,
         ApplicationModule,
-        DomainModule,
-        ToastrModule.forRoot({}),
+        InfrastructureModule,
+        ToastrModule.forRoot({
+            positionClass: 'toast-top-center',
+            progressBar: true,
+        }),
     ],
     providers: [],
     bootstrap: [PresentationComponent]

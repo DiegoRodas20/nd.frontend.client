@@ -1,7 +1,7 @@
 import { Observable } from "rxjs";
-import { Wishlist } from "../entities/wishlist.model";
+import { Wishlist } from "../wishlist/wishlist.model";
 
-export abstract class WishlistRepository {
+export abstract class IWishlistRepository {
 
     abstract getProductsWishlist(): Observable<Wishlist[]>
 

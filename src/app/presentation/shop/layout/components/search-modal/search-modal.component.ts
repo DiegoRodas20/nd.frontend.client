@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { RegisterProductCartCommand } from "src/app/application/cart/commands/register-product-cart/register-product-cart.command";
 import { GetProductsByNameQuery } from "src/app/application/product/queries/get-product-by-name/get-products-by-name.query";
-import { Product } from "src/app/domain/entities/product.model";
+import { Product } from "src/app/domain/product/product.model";
 import { SearchModalService } from "./search-modal.service";
 
 @Component({
