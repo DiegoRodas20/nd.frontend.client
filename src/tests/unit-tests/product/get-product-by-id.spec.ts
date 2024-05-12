@@ -2,7 +2,7 @@ import { GetProductByIdQueryHandler } from "src/app/application/product/queries/
 import { Product } from "src/app/domain/product/product.model";
 import { IProductRepository } from "src/app/domain/product/product.repository";
 
-describe('GetProductByIdQueryHandler', () => {
+describe('Get Product By Id Use Case', () => {
     let productRepository: jasmine.SpyObj<IProductRepository>;
     let getProductByIdQueryHandler: GetProductByIdQueryHandler;
   
