@@ -12,7 +12,7 @@ export class CatalogComponent implements OnInit {
 
     products: Product[] = []
     currentPage: number = 1;
-    itemsPerPage: number = 2;
+    itemsPerPage: number = 8;
 
     constructor(
         private _getProductsQuery: GetProductsQuery,
