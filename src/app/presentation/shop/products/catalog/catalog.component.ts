@@ -11,7 +11,7 @@ import { Product } from "src/app/domain/product/product.model";
 export class CatalogComponent implements OnInit {
 
     products: Product[] = []
-    currentPage: number = 1;
+    currentPage: number = 2;
     itemsPerPage: number = 8;
 
     constructor(
