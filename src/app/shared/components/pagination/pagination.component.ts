@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Product } from "src/app/domain/product/product.model";
 
 @Component({
     selector: 'app-pagination',
@@ -8,24 +9,49 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 export class PaginationComponent implements OnInit {
 
-    @Input() itemsPerPage: number = 1
-    @Input() totalItems: number = 1
-    @Output() pageChanged: EventEmitter<number> = new EventEmitter()
+    @Input() items: Product[] = []
+    @Output() displayedItems: EventEmitter<Product[]> = new EventEmitter();
+
+    pages: number[] = []
+    currentPage: number = 1
+    itemsPerPage: number = 4
 
     constructor() { }
 
-    ngOnInit() { }
-
-    get getPages() {
-
-        const totalPages = Math.round(this.totalItems / this.itemsPerPage)
-
-        const pages: number[] = Array.from({ length: totalPages }, (_, index) => index + 1);
-
-        return pages
+    ngOnInit() {
+        this.getPages(this.items.length)
+        this.paginateItems(this.currentPage)
     }
 
-    public changePage(page: number) {
-        this.pageChanged.emit(page)
+    public paginateItems(currentPage: number) {
+
+        const startIndex = (currentPage - 1) * this.itemsPerPage
+        const endIndex = startIndex + this.itemsPerPage
+
+        const paginatedItems = this.items.slice(startIndex, endIndex)
+        this.currentPage = currentPage
+        this.displayedItems.emit(paginatedItems)
+    }
+
+    public nextPage() {
+        if (this.currentPage < this.pages.length) {
+            this.paginateItems(this.currentPage + 1)
+        }
+    }
+
+    public backPage() {
+        if (this.currentPage >= 2) {
+            this.paginateItems(this.currentPage - 1)
+        }
+    }
+
+    public getPages(itemsCount: number) {
+
+        const totalPages = Math.round(itemsCount / this.itemsPerPage)
+
+        this.pages = Array.from(
+            { length: totalPages },
+            (_, index) => index + 1
+        )
     }
 }
