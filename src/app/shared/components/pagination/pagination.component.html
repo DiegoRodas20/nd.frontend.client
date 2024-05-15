@@ -3,21 +3,20 @@
         <nav>
             <ul>
                 <li>
-                    <a href="shop.html">
+                    <a (click)="backPage()">
                         <i class="fa-regular fa-chevron-left"></i>
                     </a>
                 </li>
 
-                <li *ngFor="let page of getPages">
-                    <a (click)="changePage(page)">{{page}}</a>
+                <li *ngFor="let page of pages">
+                    <a 
+                        [class]="page == currentPage ? 'current' : ''" 
+                        (click)="paginateItems(page)">
+                        {{page}}
+                    </a>
                 </li>
-
-                <!-- <li>
-                    <span class="current">2</span>
-                </li> -->
-
                 <li>
-                    <a href="shop.html">
+                    <a (click)="nextPage()">
                         <i class="fa-regular fa-chevron-right"></i>
                     </a>
                 </li>

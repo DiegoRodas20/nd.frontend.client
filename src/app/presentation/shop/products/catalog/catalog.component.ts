@@ -11,11 +11,10 @@ import { Product } from "src/app/domain/product/product.model";
 export class CatalogComponent implements OnInit {
 
     products: Product[] = []
-    currentPage: number = 2;
-    itemsPerPage: number = 8;
+    paginatedProducts: Product[] = []
 
     constructor(
-        private _getProductsQuery: GetProductsQuery,
+        private _getProductsQuery: GetProductsQuery
     ) { }
 
     ngOnInit() {
@@ -26,13 +25,7 @@ export class CatalogComponent implements OnInit {
         this.products = this._getProductsQuery.execute()
     }
 
-    public onPageChange(page: number) {
-        this.currentPage = page
-    }
-
-    get displayedProducts(): Product[] {
-        const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-        const endIndex = startIndex + this.itemsPerPage;
-        return this.products.slice(startIndex, endIndex);
+    public displayedProducts(event: Product[]) {
+        this.paginatedProducts = event
     }
 }
