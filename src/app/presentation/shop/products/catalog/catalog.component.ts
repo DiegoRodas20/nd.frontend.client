@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { GetProductsQuery } from "src/app/application/product/queries/get-products/get-products.query";
 import { Product } from "src/app/domain/product/product.model";
 
@@ -14,7 +14,8 @@ export class CatalogComponent implements OnInit {
     paginatedProducts: Product[] = []
 
     constructor(
-        private _getProductsQuery: GetProductsQuery
+        private _getProductsQuery: GetProductsQuery,
+        private _changeDetector: ChangeDetectorRef
     ) { }
 
     ngOnInit() {
@@ -27,5 +28,6 @@ export class CatalogComponent implements OnInit {
 
     public displayedProducts(event: Product[]) {
         this.paginatedProducts = event
+        this._changeDetector.detectChanges()
     }
 }
