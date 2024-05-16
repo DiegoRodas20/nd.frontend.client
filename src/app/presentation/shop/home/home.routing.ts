@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
-import { HOME_ROUTE } from "src/app/shared/routes/app.routes";
+import { APP_ROUTES } from "src/app/shared/routes/app.routes";
 import { HomeComponent } from "./home.component";
 
 const routes: Routes = [
@@ -8,7 +8,7 @@ const routes: Routes = [
         path: '',
         component: HomeComponent,
         data: {
-            url: HOME_ROUTE,
+            url: APP_ROUTES.HOME,
             name: 'Inicio',
             isActive: false
         }

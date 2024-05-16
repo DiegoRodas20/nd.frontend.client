@@ -1,12 +1,12 @@
 export const APP_PATH = {
-    SHOP: 'shop',
+    SHOP: '',
     CLIENT: 'client'
 }
 
 export const SHOP_PATH = {
-    HOME: 'home',
-    ORDERS: 'orders',
-    PRODUCTS: 'products'
+    HOME: '',
+    ORDERS: '',
+    PRODUCTS: ''
 }
 
 export const ORDER_PATH = {

@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core"
 import { RouterModule, Routes } from "@angular/router"
-import { HOME_ROUTE } from "../shared/routes/app.routes"
 import { APP_PATH } from "../shared/routes/path.routes"
 
 const routes: Routes = [
@@ -14,7 +13,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: HOME_ROUTE,
+        redirectTo: APP_PATH.SHOP,
         pathMatch: 'full'
     }
 ]
