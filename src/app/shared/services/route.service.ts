@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
-    CATALOG_ROUTE,
+    STORE_ROUTE,
     CHECK_OUT_ROUTE,
     HOME_ROUTE,
     ORDERS_CART_ROUTE,
@@ -15,7 +15,7 @@ import {
 
 export class RouteService {
     public homeRoute: string = HOME_ROUTE;
-    public catalogRoute: string = CATALOG_ROUTE;
+    public storeRoute: string = STORE_ROUTE;
     public productDetailRoute: string = PRODUCT_DETAIL_ROUTE;
     public orderCartRoute: string = ORDERS_CART_ROUTE;
     public checkOutRoute: string = CHECK_OUT_ROUTE;

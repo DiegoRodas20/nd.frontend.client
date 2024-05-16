@@ -5,12 +5,12 @@ import { Product } from "src/app/domain/product/product.model";
 import { RouteService } from "src/app/shared/services/route.service";
 
 @Component({
-    selector: 'app-product-catalog',
-    templateUrl: 'product-catalog.component.html',
-    styleUrls: ['./product-catalog.component.scss']
+    selector: 'app-product-store',
+    templateUrl: 'product-store.component.html',
+    styleUrls: ['./product-store.component.scss']
 })
 
-export class ProductCatalogComponent implements OnInit {
+export class ProductStoreComponent implements OnInit {
 
     private _isAdding: boolean = false
     @Input() product!: Product

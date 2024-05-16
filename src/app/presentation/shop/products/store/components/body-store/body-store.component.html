@@ -1,8 +1,8 @@
 <div *ngIf="products">
     <div class="row" [@scaleFadeStagger]>
         <div *ngFor="let product of products" class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-            <app-product-catalog [product]="product">
-            </app-product-catalog>
+            <app-product-store [product]="product">
+            </app-product-store>
         </div>
     </div>
 </div>

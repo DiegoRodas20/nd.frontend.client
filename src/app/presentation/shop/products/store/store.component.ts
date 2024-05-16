@@ -3,12 +3,12 @@ import { GetProductsQuery } from "src/app/application/product/queries/get-produc
 import { Product } from "src/app/domain/product/product.model";
 
 @Component({
-    selector: 'app-catalog',
-    templateUrl: 'catalog.component.html',
-    styleUrls: ['./catalog.component.scss']
+    selector: 'app-store',
+    templateUrl: 'store.component.html',
+    styleUrls: ['./store.component.scss']
 })
 
-export class CatalogComponent implements OnInit {
+export class StoreComponent implements OnInit {
 
     products: Product[] = []
     paginatedProducts: Product[] = []

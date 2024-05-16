@@ -3,8 +3,10 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="shop-main-wrapper">
-                    <app-header-catalog></app-header-catalog>
-                    <app-body-catalog [products]="paginatedProducts"></app-body-catalog>
+                    <app-header-store></app-header-store>
+                    <app-body-store 
+                        [products]="paginatedProducts">
+                    </app-body-store>
                     <app-pagination 
                         [items]="products" 
                         (displayedItems)="displayedProducts($event)">

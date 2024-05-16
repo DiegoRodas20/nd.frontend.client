@@ -1,20 +1,20 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
-import { CATALOG_ROUTE, CATEGORIES_ROUTE, PRODUCT_DETAIL_ROUTE, WISH_LIST_ROUTE } from "src/app/shared/routes/app.routes";
+import { CATEGORIES_ROUTE, PRODUCT_DETAIL_ROUTE, STORE_ROUTE, WISH_LIST_ROUTE } from "src/app/shared/routes/app.routes";
 import { PRODUCT_PATH } from "src/app/shared/routes/path.routes";
-import { CatalogComponent } from "./catalog/catalog.component";
 import { CategoriesComponent } from "./categories/categories.component";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
 import { WishlistComponent } from "./wish-list/wish-list.component";
+import { StoreComponent } from "./store/store.component";
 
 const routes: Routes = [
 
     {
-        path: PRODUCT_PATH.CATALOG,
-        component: CatalogComponent,
+        path: PRODUCT_PATH.STORE,
+        component: StoreComponent,
         data: {
-            url: CATALOG_ROUTE,
-            name: 'Catalogo',
+            url: STORE_ROUTE,
+            name: 'Store',
             isActive: true
         }
     },
