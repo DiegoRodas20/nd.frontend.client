@@ -1,19 +1,18 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
-import { CATEGORIES_ROUTE, PRODUCT_DETAIL_ROUTE, STORE_ROUTE, WISH_LIST_ROUTE } from "src/app/shared/routes/app.routes";
+import { APP_ROUTES } from "src/app/shared/routes/app.routes";
 import { PRODUCT_PATH } from "src/app/shared/routes/path.routes";
 import { CategoriesComponent } from "./categories/categories.component";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
-import { WishlistComponent } from "./wish-list/wish-list.component";
 import { StoreComponent } from "./store/store.component";
+import { WishlistComponent } from "./wish-list/wish-list.component";
 
 const routes: Routes = [
-
     {
         path: PRODUCT_PATH.STORE,
         component: StoreComponent,
         data: {
-            url: STORE_ROUTE,
+            url: APP_ROUTES.STORE,
             name: 'Store',
             isActive: true
         }
@@ -22,7 +21,7 @@ const routes: Routes = [
         path: `${PRODUCT_PATH.PRODUCT_DETAIL}/:id`,
         component: ProductDetailComponent,
         data: {
-            url: PRODUCT_DETAIL_ROUTE,
+            url: APP_ROUTES.PRODUCT_DETAIL,
             name: 'Detalle del Producto',
             isActive: true
         }
@@ -31,7 +30,7 @@ const routes: Routes = [
         path: PRODUCT_PATH.CATEGORIES,
         component: CategoriesComponent,
         data: {
-            url: CATEGORIES_ROUTE,
+            url: APP_ROUTES.CATEGORIES,
             name: 'Categorias',
             isActive: true
         }
@@ -40,12 +39,11 @@ const routes: Routes = [
         path: PRODUCT_PATH.WISH_LIST,
         component: WishlistComponent,
         data: {
-            url: WISH_LIST_ROUTE,
+            url: APP_ROUTES.WISH_LIST,
             name: 'Wishlist',
             isActive: true
         }
-    },
-
+    }
 ]
 
 @NgModule({

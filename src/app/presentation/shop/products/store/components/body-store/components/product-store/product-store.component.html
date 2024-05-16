@@ -13,7 +13,7 @@
 
         <div class="product__thumb">
 
-            <a [routerLink]="[ routeService.productDetailRoute , product.id ]">
+            <a [routerLink]="[routeService.productDetailRoute(product.id)]">
                 <img [src]="product.images[0]" class="product__image" alt="" />
             </a>
 

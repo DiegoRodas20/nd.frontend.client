@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { SidebarService } from "./sidebar-menu.service";
 import { Router } from "@angular/router";
-import { STORE_ROUTE, CHECK_OUT_ROUTE, HOME_ROUTE } from "src/app/shared/routes/app.routes";
+import { RouteService } from "src/app/shared/services/route.service";
+import { SidebarService } from "./sidebar-menu.service";
 
 @Component({
     selector: 'app-sidebar-menu',
@@ -15,6 +15,7 @@ export class SidebarMenuComponent implements OnInit {
 
     constructor(
         private _router: Router,
+        private _routeService: RouteService,
         private _sidebarService: SidebarService
     ) { }
 
@@ -23,7 +24,6 @@ export class SidebarMenuComponent implements OnInit {
     }
 
     subscribeSidebarVisible() {
-
         this._sidebarService.sidebarVisible$.subscribe(state => {
             this.viewSidebar = state
         })
@@ -33,14 +33,14 @@ export class SidebarMenuComponent implements OnInit {
     }
 
     public goToHome() {
-        this._router.navigate([HOME_ROUTE])
+        this._router.navigate([this._routeService.homeRoute])
     }
 
     public goToProducts() {
-        this._router.navigate([STORE_ROUTE])
+        this._router.navigate([this._routeService.storeRoute])
     }
 
     public goToPurchaseOrders() {
-        this._router.navigate([CHECK_OUT_ROUTE])
+        this._router.navigate([this._routeService.checkOutRoute])
     }
 }
