@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { SidebarService } from "./sidebar-menu.service";
 import { Router } from "@angular/router";
-import { CATALOG_ROUTE, CHECK_OUT_ROUTE, HOME_ROUTE } from "src/app/shared/routes/app.routes";
+import { STORE_ROUTE, CHECK_OUT_ROUTE, HOME_ROUTE } from "src/app/shared/routes/app.routes";
 
 @Component({
     selector: 'app-sidebar-menu',
@@ -37,7 +37,7 @@ export class SidebarMenuComponent implements OnInit {
     }
 
     public goToProducts() {
-        this._router.navigate([CATALOG_ROUTE])
+        this._router.navigate([STORE_ROUTE])
     }
 
     public goToPurchaseOrders() {

@@ -16,7 +16,7 @@ export const ORDER_PATH = {
 }
 
 export const PRODUCT_PATH = {
-    CATALOG: 'catalog',
+    STORE: 'store',
     PRODUCT_DETAIL: 'product-detail',
     CATEGORIES: 'categories',
     WISH_LIST: 'wish-list'

@@ -5,7 +5,7 @@ import { BehaviorSubject } from "rxjs";
     providedIn: 'root'
 })
 
-export class FilterCatalogService {
+export class FilterStoreService {
 
     private filterCatalogVisible = new BehaviorSubject<boolean>(false)
     filterCatalogVisible$ = this.filterCatalogVisible.asObservable()

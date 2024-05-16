@@ -3,21 +3,21 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { SharedModule } from "src/app/shared/shared.module";
-import { CatalogComponent } from "./catalog/catalog.component";
-import { BodyCatalogComponent } from "./catalog/components/body-catalog/body-catalog.component";
-import { FilterCatalogComponent } from "./catalog/components/body-catalog/components/filter-catalog/filter-catalog.component";
-import { ProductCatalogComponent } from "./catalog/components/body-catalog/components/product-catalog/product-catalog.component";
-import { HeaderCatalogComponent } from "./catalog/components/header-catalog/header-catalog.component";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
 import { ProductsRoutingModule } from "./products.routing";
 import { WishlistComponent } from "./wish-list/wish-list.component";
+import { StoreComponent } from "./store/store.component";
+import { BodyStoreComponent } from "./store/components/body-store/body-store.component";
+import { FilterStoreComponent } from "./store/components/body-store/components/filter-store/filter-store.component";
+import { ProductStoreComponent } from "./store/components/body-store/components/product-store/product-store.component";
+import { HeaderStoreComponent } from "./store/components/header-store/header-store.component";
 
 const COMPONENTS = [
-    CatalogComponent,
-    HeaderCatalogComponent,
-    BodyCatalogComponent,
-    FilterCatalogComponent,
-    ProductCatalogComponent,
+    StoreComponent,
+    HeaderStoreComponent,
+    BodyStoreComponent,
+    FilterStoreComponent,
+    ProductStoreComponent,
     WishlistComponent,
     ProductDetailComponent
 ]
