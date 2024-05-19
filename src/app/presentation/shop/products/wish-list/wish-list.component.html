@@ -17,7 +17,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr [@slideFadeLeft] *ngFor="let product of productsWishlist">
+                            <tr [@slideFadeLeft] *ngFor="let product of paginatedProductsWishList">
 
                                 <!-- Delete product to wishlist -->
                                 <td>
@@ -66,7 +66,10 @@
                         </tbody>
                     </table>
 
-                    <app-pagination></app-pagination>
+                    <app-pagination 
+                        [items]="productsWishlist"
+                        (displayedItems)="displayedProducts($event)">
+                    </app-pagination>
 
                 </div>
 

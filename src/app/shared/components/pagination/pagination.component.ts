@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { Product } from "src/app/domain/product/product.model";
 
 @Component({
     selector: 'app-pagination',
@@ -9,8 +8,8 @@ import { Product } from "src/app/domain/product/product.model";
 
 export class PaginationComponent implements OnInit {
 
-    @Input() items: Product[] = []
-    @Output() displayedItems: EventEmitter<Product[]> = new EventEmitter();
+    @Input() items: any[] = []
+    @Output() displayedItems: EventEmitter<any[]> = new EventEmitter();
 
     pages: number[] = []
     currentPage: number = 1
@@ -29,6 +28,7 @@ export class PaginationComponent implements OnInit {
         const endIndex = startIndex + this.itemsPerPage
 
         const paginatedItems = this.items.slice(startIndex, endIndex)
+
         this.currentPage = currentPage
         this.displayedItems.emit(paginatedItems)
     }
