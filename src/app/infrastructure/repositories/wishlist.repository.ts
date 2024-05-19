@@ -1,5 +1,4 @@
 import { Signal, WritableSignal, signal } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { Wishlist } from 'src/app/domain/wishlist/wishlist.model';
 import { IWishlistRepository } from 'src/app/domain/wishlist/wishlist.repository';
 
@@ -7,9 +6,6 @@ export class WishlistRepository implements IWishlistRepository {
 
     private localStorageKey: string = 'wishlist_products';
     private productsWishlist: WritableSignal<Wishlist[]> = signal([])
-
-    private products = new BehaviorSubject<Wishlist[]>([]);
-    private products$ = this.products.asObservable();
 
     constructor() {
         this.setProductsWishlist();
