@@ -3,7 +3,6 @@ import { RegisterProductCartCommand } from "src/app/application/cart/commands/re
 import { DeleteProductWishlistCommand } from "src/app/application/wishlist/commands/delete-product-wishlist/delete-product-wishlist.command";
 import { GetProductsWishlistQuery } from "src/app/application/wishlist/queries/get-products-wishlist/get-products-wishlist.query";
 import { Wishlist } from "src/app/domain/wishlist/wishlist.model";
-import { slideFadeLeft } from "src/app/shared/animations/slide-fade-left.animation";
 import { slideTable } from "src/app/shared/animations/slide-table.animation";
 import { RouteService } from "src/app/shared/services/route.service";
 
@@ -11,7 +10,7 @@ import { RouteService } from "src/app/shared/services/route.service";
     selector: 'app-wish-list',
     templateUrl: 'wish-list.component.html',
     styleUrls: ['./wish-list.component.scss'],
-    animations: [slideFadeLeft, slideTable]
+    animations: [slideTable]
 })
 
 export class WishlistComponent implements OnInit {
@@ -42,10 +41,15 @@ export class WishlistComponent implements OnInit {
 
     public deleteProductWishlist(idProductWishlist: string) {
         this._deleteProductWishlist.execute(idProductWishlist)
+        this.deleteProductPaginated(idProductWishlist)
     }
 
     public displayedProducts(event: Wishlist[]) {
         this.paginatedProductsWishList = event
         this._changeDetector.detectChanges()
+    }
+
+    private deleteProductPaginated(idProductWishlist: string) {
+        this.paginatedProductsWishList = this.paginatedProductsWishList.filter(value => value.id !== idProductWishlist)
     }
 }
