@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, OnInit, Signal, signal } from "@angular/core";
 import { RegisterProductCartCommand } from "src/app/application/cart/commands/register-product-cart/register-product-cart.command";
 import { DeleteProductWishlistCommand } from "src/app/application/wishlist/commands/delete-product-wishlist/delete-product-wishlist.command";
 import { GetProductsWishlistQuery } from "src/app/application/wishlist/queries/get-products-wishlist/get-products-wishlist.query";
@@ -16,7 +16,7 @@ import { RouteService } from "src/app/shared/services/route.service";
 
 export class WishlistComponent implements OnInit {
 
-    productsWishlist: Wishlist[] = []
+    productsWishlist: Signal<Wishlist[]> = signal([])
     paginatedProductsWishList: Wishlist[] = []
 
     constructor(
@@ -32,9 +32,8 @@ export class WishlistComponent implements OnInit {
     }
 
     public getProductsWishlist() {
-        this._getProductsWishlist.execute().subscribe(result => {
-            this.productsWishlist = result
-        })
+
+        this.productsWishlist = this._getProductsWishlist.execute()
     }
 
     public registerProductCart(productWishlist: Wishlist) {

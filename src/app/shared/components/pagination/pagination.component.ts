@@ -23,7 +23,6 @@ export class PaginationComponent implements OnInit {
     }
 
     public paginateItems(currentPage: number) {
-
         const startIndex = (currentPage - 1) * this.itemsPerPage
         const endIndex = startIndex + this.itemsPerPage
 
@@ -47,7 +46,7 @@ export class PaginationComponent implements OnInit {
 
     public getPages(itemsCount: number) {
 
-        const totalPages = Math.round(itemsCount / this.itemsPerPage)
+        const totalPages = Math.ceil(itemsCount / this.itemsPerPage)
 
         this.pages = Array.from(
             { length: totalPages },

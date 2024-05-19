@@ -1,9 +1,9 @@
-import { Observable } from "rxjs";
+import { Signal } from "@angular/core";
 import { Wishlist } from "../wishlist/wishlist.model";
 
 export abstract class IWishlistRepository {
 
-    abstract getProductsWishlist(): Observable<Wishlist[]>
+    abstract getProductsWishlist(): Signal<Wishlist[]>
 
     abstract getProductWishlistByProductId(idProduct: number): Wishlist | undefined
 

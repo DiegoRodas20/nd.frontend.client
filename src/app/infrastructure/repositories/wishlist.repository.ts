@@ -1,10 +1,13 @@
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Signal, WritableSignal, signal } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Wishlist } from 'src/app/domain/wishlist/wishlist.model';
 import { IWishlistRepository } from 'src/app/domain/wishlist/wishlist.repository';
 
 export class WishlistRepository implements IWishlistRepository {
 
     private localStorageKey: string = 'wishlist_products';
+    private productsWishlist: WritableSignal<Wishlist[]> = signal([])
+
     private products = new BehaviorSubject<Wishlist[]>([]);
     private products$ = this.products.asObservable();
 
@@ -13,44 +16,46 @@ export class WishlistRepository implements IWishlistRepository {
     }
 
     private setProductsWishlist() {
+
         const storedData = localStorage.getItem(this.localStorageKey);
 
-        if (storedData) this.products.next(JSON.parse(storedData));
+        if (storedData) {
+            this.productsWishlist.set(JSON.parse(storedData))
+        }
     }
 
-    public getProductsWishlist(): Observable<Wishlist[]> {
-        return this.products$;
+    public getProductsWishlist(): Signal<Wishlist[]> {
+
+        return this.productsWishlist;
     }
 
     public getProductWishlistByProductId(idProduct: number): Wishlist | undefined {
 
-        var result = this.products.value.find(
-            (productWishlist) => productWishlist.idProduct === idProduct
-        );
+        const productWishlist = this.productsWishlist().find(value => value.idProduct === idProduct)
 
-        return result;
+        return productWishlist;
     }
 
     public registerProductWishlist(productWishlist: Wishlist): Promise<string> {
 
-        const value = this.products.getValue();
+        this.productsWishlist().push(productWishlist)
 
-        value.push(productWishlist);
-        this.products.next(value);
-
-        localStorage.setItem(this.localStorageKey, JSON.stringify(value));
+        this.updateStorageProductsWishlist()
 
         return Promise.resolve(productWishlist.id)
     }
 
     public deleteProductWishlist(idProductWishlist: string): Promise<boolean> {
 
-        const value = this.products.getValue()
-            .filter(productWishlist => productWishlist.id != idProductWishlist);
+        this.productsWishlist.update(() => this.productsWishlist().filter(value => value.id !== idProductWishlist))
 
-        this.products.next(value);
-        localStorage.setItem(this.localStorageKey, JSON.stringify(value));
+        this.updateStorageProductsWishlist()
 
         return Promise.resolve(true)
+    }
+
+    private updateStorageProductsWishlist() {
+
+        localStorage.setItem(this.localStorageKey, JSON.stringify(this.productsWishlist()))
     }
 }

@@ -4,7 +4,7 @@
         <div class="header-action-item d-none d-lg-block">
             <a [routerLink]="routeService.wishListRoute" class="header-action-btn">
                 <i class="fa-light fa-heart"></i>
-                <span class="header-action-badge">{{ countProductsWishlist }}</span>
+                <span class="header-action-badge">{{ countProductsWishlist().length}}</span>
             </a>
         </div>
 
