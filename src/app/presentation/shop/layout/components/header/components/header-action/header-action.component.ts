@@ -4,6 +4,7 @@ import { GetProductsWishlistQuery } from "src/app/application/wishlist/queries/g
 import { Cart } from "src/app/domain/cart/cart.model";
 import { RouteService } from "src/app/shared/services/route.service";
 import { ShoppingCartService } from "../../../cart/cart.service";
+import { Wishlist } from "src/app/domain/wishlist/wishlist.model";
 
 @Component({
     selector: 'app-header-action',
@@ -14,7 +15,7 @@ import { ShoppingCartService } from "../../../cart/cart.service";
 export class HeaderActionComponent implements OnInit {
 
     countProductsCart: Signal<Cart[]> = signal([])
-    countProductsWishlist: number = 0
+    countProductsWishlist: Signal<Wishlist[]> = signal([])
 
     constructor(
         public routeService: RouteService,
@@ -29,12 +30,11 @@ export class HeaderActionComponent implements OnInit {
     }
 
     private setProductsCart() {
-        // this._getProductsCart.execute().subscribe(result => this.countProductsCart = result.length)
         this.countProductsCart = this._getProductsCart.execute()
     }
 
     private setProductsWishlist() {
-        this._getProductsWishlist.execute().subscribe(products => this.countProductsWishlist = products.length)
+        this.countProductsWishlist = this._getProductsWishlist.execute()
     }
 
     public openShoppingCart() {

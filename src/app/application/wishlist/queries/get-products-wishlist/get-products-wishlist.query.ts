@@ -1,9 +1,9 @@
-import { Observable } from "rxjs";
-import { UseCaseObservable } from "src/app/application/base/use-case-observable.base";
+import { Signal } from "@angular/core";
+import { UseCaseSignal } from "src/app/application/base/use-case-signal.base";
 import { Wishlist } from "src/app/domain/wishlist/wishlist.model";
 
-export abstract class GetProductsWishlistQuery implements UseCaseObservable<void, Wishlist[]> {
+export abstract class GetProductsWishlistQuery implements UseCaseSignal<void, Wishlist[]> {
 
-    abstract execute(): Observable<Wishlist[]>
-    
+    abstract execute(): Signal<Wishlist[]>
+
 }

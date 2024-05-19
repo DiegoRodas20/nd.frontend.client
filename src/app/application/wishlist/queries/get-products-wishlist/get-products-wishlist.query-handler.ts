@@ -1,8 +1,7 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Injectable, Signal } from "@angular/core";
 import { Wishlist } from "src/app/domain/wishlist/wishlist.model";
-import { GetProductsWishlistQuery } from "./get-products-wishlist.query";
 import { IWishlistRepository } from "src/app/domain/wishlist/wishlist.repository";
+import { GetProductsWishlistQuery } from "./get-products-wishlist.query";
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +12,7 @@ export class GetProductsWishlistQueryHandler implements GetProductsWishlistQuery
         private _wishlistRepository: IWishlistRepository
     ) { }
 
-    execute(): Observable<Wishlist[]> {
+    execute(): Signal<Wishlist[]> {
 
         return this._wishlistRepository.getProductsWishlist()
     }
