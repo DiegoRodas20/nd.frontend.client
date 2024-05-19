@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { RegisterProductCartCommand } from "src/app/application/cart/commands/register-product-cart/register-product-cart.command";
 import { DeleteProductWishlistCommand } from "src/app/application/wishlist/commands/delete-product-wishlist/delete-product-wishlist.command";
 import { GetProductsWishlistQuery } from "src/app/application/wishlist/queries/get-products-wishlist/get-products-wishlist.query";
@@ -17,9 +17,11 @@ import { RouteService } from "src/app/shared/services/route.service";
 export class WishlistComponent implements OnInit {
 
     productsWishlist: Wishlist[] = []
+    paginatedProductsWishList: Wishlist[] = []
 
     constructor(
         public routeService: RouteService,
+        private _changeDetector: ChangeDetectorRef,
         private _getProductsWishlist: GetProductsWishlistQuery,
         private _registerProductCart: RegisterProductCartCommand,
         private _deleteProductWishlist: DeleteProductWishlistCommand
@@ -41,5 +43,10 @@ export class WishlistComponent implements OnInit {
 
     public deleteProductWishlist(idProductWishlist: string) {
         this._deleteProductWishlist.execute(idProductWishlist)
+    }
+
+    public displayedProducts(event: Wishlist[]) {
+        this.paginatedProductsWishList = event
+        this._changeDetector.detectChanges()
     }
 }
