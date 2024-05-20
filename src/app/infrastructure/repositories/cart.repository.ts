@@ -65,17 +65,25 @@ export class CartRepository implements ICartRepository {
 
     public increaseQuantityProductCart(idProductCart: string): Promise<boolean> {
 
-        this.productsCart.mutate(values => {
+        this.productsCart().forEach(productCart => {
 
-            values.forEach(productCart => {
-
-                if (productCart.id === idProductCart) {
-                    productCart.quantity = productCart.quantity + 1
-                    productCart.priceCart = productCart.priceProduct * productCart.quantity
-                }
-
-            })
+            if (productCart.id === idProductCart) {
+                productCart.quantity = productCart.quantity + 1
+                productCart.priceCart = productCart.priceProduct * productCart.quantity
+            }
         })
+
+        // this.productsCart.mutate(values => {
+
+        //     values.forEach(productCart => {
+
+        //         if (productCart.id === idProductCart) {
+        //             productCart.quantity = productCart.quantity + 1
+        //             productCart.priceCart = productCart.priceProduct * productCart.quantity
+        //         }
+
+        //     })
+        // })
 
         this.updateStorageProductsCart()
 
@@ -91,15 +99,23 @@ export class CartRepository implements ICartRepository {
             return Promise.resolve(false)
         }
 
-        this.productsCart.mutate(values => {
-            values.forEach(productCart => {
+        this.productsCart().forEach(productCart => {
 
-                if (productCart.id === idProductCart) {
-                    productCart.quantity = productCart.quantity - 1
-                    productCart.priceCart = productCart.priceProduct * productCart.quantity
-                }
-            })
+            if (productCart.id === idProductCart) {
+                productCart.quantity = productCart.quantity - 1
+                productCart.priceCart = productCart.priceProduct * productCart.quantity
+            }
         })
+
+        // this.productsCart.mutate(values => {
+        //     values.forEach(productCart => {
+
+        //         if (productCart.id === idProductCart) {
+        //             productCart.quantity = productCart.quantity - 1
+        //             productCart.priceCart = productCart.priceProduct * productCart.quantity
+        //         }
+        //     })
+        // })
 
         this.updateStorageProductsCart()
 
