@@ -14,6 +14,7 @@
             box-shadow: none;
             vertical-align: middle;
             background-color: inherit;
+            border-bottom: none;
         }
 
         & thead {
@@ -59,7 +60,7 @@
             @include transition();
 
             &:hover {
-                @include transform(scale(1.1));
+                @include transform(scale(1.2));
             }
         }
     }
