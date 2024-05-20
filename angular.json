@@ -15,7 +15,7 @@
 			"prefix": "app",
 			"architect": {
 				"build": {
-					"builder": "ngx-build-plus:browser",
+					"builder": "@angular-devkit/build-angular:browser",
 					"options": {
 						"outputPath": "dist/nd.frontend.client",
 						"index": "src/index.html",
@@ -40,9 +40,7 @@
 						},
 						"scripts": [
 							"./node_modules/bootstrap/dist/js/bootstrap.min.js"
-						],
-						"extraWebpackConfig": "webpack.config.js",
-						"commonChunk": false
+						]
 					},
 					"configurations": {
 						"production": {
@@ -58,8 +56,7 @@
 									"maximumError": "10kb"
 								}
 							],
-							"outputHashing": "all",
-							"extraWebpackConfig": "webpack.prod.config.js"
+							"outputHashing": "all"
 						},
 						"development": {
 							"buildOptimizer": false,
@@ -73,28 +70,21 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "ngx-build-plus:dev-server",
+					"builder": "@angular-devkit/build-angular:dev-server",
 					"configurations": {
 						"production": {
-							"browserTarget": "nd.frontend.client:build:production",
-							"extraWebpackConfig": "webpack.prod.config.js"
+							"browserTarget": "nd.frontend.client:build:production"
 						},
 						"development": {
 							"browserTarget": "nd.frontend.client:build:development"
 						}
 					},
-					"defaultConfiguration": "development",
-					"options": {
-						"port": 4200,
-						"publicHost": "http://localhost:4200",
-						"extraWebpackConfig": "webpack.config.js"
-					}
+					"defaultConfiguration": "development"
 				},
 				"extract-i18n": {
-					"builder": "ngx-build-plus:extract-i18n",
+					"builder": "@angular-devkit/build-angular:extract-i18n",
 					"options": {
-						"browserTarget": "nd.frontend.client:build",
-						"extraWebpackConfig": "webpack.config.js"
+						"browserTarget": "nd.frontend.client:build"
 					}
 				},
 				"test": {
