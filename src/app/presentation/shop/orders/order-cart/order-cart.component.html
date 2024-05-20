@@ -11,9 +11,8 @@
                                 <th></th>
                                 <th colspan="2">Product</th>
                                 <th>Rating</th>
+                                <th class="text-start">Quantity</th>
                                 <th>Price</th>
-                                <th>Quantity</th>
-                                <th></th>
                             </tr>
                         </thead>
 
@@ -45,11 +44,6 @@
                                     <app-rating-star [rating]="product.rating"></app-rating-star>
                                 </td>
 
-                                <!-- Price -->
-                                <td class="order-cart__price">
-                                    <span>${{ product.priceCart }}</span>
-                                </td>
-
                                 <!-- Quantity -->
                                 <td class="order-cart__quantity">
                                     <div class="order-cart__input">
@@ -63,6 +57,11 @@
                                             <i class="fa-regular fa-plus fa-2xs"></i>
                                         </button>
                                     </div>
+                                </td>
+                                
+                                <!-- Price -->
+                                <td class="order-cart__price">
+                                    <span>${{ product.priceCart }}</span>
                                 </td>
 
                             </tr>
