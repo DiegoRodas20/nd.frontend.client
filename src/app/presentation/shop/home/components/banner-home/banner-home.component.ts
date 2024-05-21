@@ -20,7 +20,7 @@ export class BannerHomeComponent implements OnInit {
             pre_title: { text: "Starting at", price: 274 },
             title: "The best tablet Collection 2023",
             subtitle: {
-                text_1: "Exclusive offer ",
+                text_1: "Test ",
                 percent: 35,
                 text_2: "off this week",
             },
