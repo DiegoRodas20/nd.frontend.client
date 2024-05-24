@@ -31,6 +31,8 @@ export class BreadcrumbComponent implements OnInit {
 
         this.getRoutes().subscribe(response => {
 
+            this.initializeHome()
+
             const object: BreadCrumb = {
                 name: response['name'],
                 url: response['url'],
@@ -44,10 +46,18 @@ export class BreadcrumbComponent implements OnInit {
                 this.isActive = true
             }
 
-            if (!this.breadCrumb.find((element) => element.name == response['name'])) {
+            if (response['name'] !== 'Home') {
                 this.breadCrumb.push(object);
             }
         })
+    }
+
+    initializeHome() {
+        this.breadCrumb = [{
+            name: 'Home',
+            url: '/',
+            isActive: false
+        }];
     }
 
     getRoutes() {
