@@ -251,14 +251,9 @@
         }
 
         &__btn {
-            font-size: 16px;
-            font-weight: 500;
             color: var(--common-white);
             background-color: var(--common-black);
             display: inline-block;
-            padding: 10px 30px;
-            text-align: center;
-            border-radius: 6px;
 
             &:hover {
                 background-color: var(--theme-primary);
