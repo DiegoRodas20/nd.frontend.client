@@ -168,10 +168,7 @@
         margin-bottom: 15px;
 
         & button {
-            font-size: 16px;
             color: var(--common-black);
-            text-align: center;
-            padding: 9px 30px;
             border: 1px solid #E0E2E3;
 
             &:hover {
@@ -184,9 +181,6 @@
 
     &__buy-now {
         display: inline-block;
-        font-size: 16px;
-        font-weight: 500;
-        padding: 10px 30px;
         background-color: var(--theme-primary);
         color: var(--common-white);
 

@@ -114,12 +114,14 @@ button:focus {
     outline: 0;
 }
 
-.uppercase {
-    text-transform: uppercase;
-}
-
-.capitalize {
+a.option,
+button.option {
+    border-radius: 6px;
+    font-size: 15px;
     text-transform: capitalize;
+    text-align: center;
+    font-weight: 400;
+    padding: 10px 30px;
 }
 
 input[type="text"],

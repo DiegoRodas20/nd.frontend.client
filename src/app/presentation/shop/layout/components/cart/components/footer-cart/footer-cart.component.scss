@@ -26,15 +26,9 @@
     &-btn {
 
         & a {
-            font-size: 15px;
-            text-transform: capitalize;
-            padding: 10px 30px;
-            text-align: center;
             display: inline-block;
-            font-weight: 400;
             background-color: var(--common-black);
             color: var(--common-white);
-            border: 1px solid var(--common-black);
 
             &.btn-border {
                 background-color: transparent;

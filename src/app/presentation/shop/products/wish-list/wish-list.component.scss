@@ -81,13 +81,8 @@
 
     &__register {
 
-        font-weight: 500;
-        font-size: 14px;
         color: var(--common-white);
         background-color: var(--theme-primary);
-        padding: 9px 26px 7px;
-        border-radius: 6px;
-        border: 0;
 
         &:hover {
             background-color: var(--common-black);
