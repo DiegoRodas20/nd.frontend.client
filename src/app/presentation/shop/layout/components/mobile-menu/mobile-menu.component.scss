@@ -1,3 +1,5 @@
+@use 'index' as *;
+
 .mobile {
 
     &__menu {
@@ -11,6 +13,13 @@
         z-index: 999;
         transition: all .3s 0s ease-out;
         box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+
+        @media #{$xs} {
+            width: 100%;
+            bottom: 0;
+            border-radius: 0px;
+            right: 0;
+        }
     }
 
     &__item {
