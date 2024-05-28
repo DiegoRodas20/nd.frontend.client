@@ -1,0 +1,11 @@
+.badge {
+    color: #ffffff;
+
+    &-success {
+        background-color: var(--alert-success);
+    }
+
+    &-error {
+        background-color: var(--alert-error);
+    }
+}
