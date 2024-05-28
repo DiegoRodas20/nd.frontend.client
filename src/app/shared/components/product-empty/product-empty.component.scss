@@ -15,12 +15,7 @@
     & a {
 
         display: inline-block;
-        font-size: 15px;
-        font-weight: 400;
-        text-transform: capitalize;
         color: var(--common-black);
-        padding: 10px 30px;
-        text-align: center;
         border: 1px solid var(--common-black);
 
         &:hover {
