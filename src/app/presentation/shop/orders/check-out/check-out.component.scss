@@ -169,7 +169,7 @@
     }
 
     &__place {
-        padding: 44px 50px 50px;
+        padding: 45px 40px 50px;
 
         @media #{$lg} {
             padding: 35px 30px;
@@ -196,10 +196,6 @@
                 display: flex;
                 justify-content: space-between;
 
-                &:not(:last-child) {
-                    border-bottom: 1px solid #E0E2E3;
-                }
-
                 & span {
                     font-size: 15px;
                     color: var(--common-black);
@@ -219,6 +215,13 @@
             }
 
             &__list {
+
+                img {
+                    height: 70px;
+                    width: 70px;
+                    object-fit: cover;
+                }
+
                 & p {
                     font-size: 15px;
                     margin-bottom: 0;

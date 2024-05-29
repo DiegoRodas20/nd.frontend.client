@@ -1,6 +1,46 @@
 <section class="checkout" data-bg-color="#EFF1F5">
     <div class="container">
         <div class="row">
+            <div class="col-lg-5">
+                <div class="checkout__place">
+
+                    <h3 class="checkout__place__title">Your Order</h3>
+
+                    <div class="checkout__place__info">
+                        <ul>
+
+
+                            @for (product of purchaseOrder().products; track $index)
+                            {
+                            <li class="checkout__place__info__list">
+                                <img [src]="product.image" alt="image" />
+                                <p>{{product.name}}</p>
+                                <p>
+                                    <span>x{{product.quantity}}</span>
+                                </p>
+                                <span>${{product.priceCart}}</span>
+                            </li>
+                            }
+
+                            <li class="checkout__place__info__subtotal">
+                                <span>Subtotal</span>
+                                <span>${{purchaseOrder().totalPrice}}</span>
+                            </li>
+
+                            <li class="checkout__place__info__total">
+                                <span>Total</span>
+                                <span>${{purchaseOrder().totalPrice}}</span>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div>
+                        <a href="#" class="option checkout__place__btn w-100">Place Order</a>
+                    </div>
+
+                </div>
+            </div>
 
             <div class="col-lg-7">
                 <div class="checkout__bill">
@@ -113,48 +153,6 @@
 
                 </div>
             </div>
-
-            <div class="col-lg-5">
-                <div class="checkout__place">
-
-                    <h3 class="checkout__place__title">Your Order</h3>
-
-                    <div class="checkout__place__info">
-                        <ul>
-
-                            <li class="checkout__place__info__header">
-                                <h4>Product</h4>
-                                <h4>Total</h4>
-                            </li>
-
-                            <li *ngFor="let product of purchaseOrder()?.products" class="checkout__place__info__list">
-                                <p>
-                                    {{product.name}}
-                                    <span> x {{product.quantity}}</span>
-                                </p>
-                                <span>${{product.priceCart}}</span>
-                            </li>
-
-                            <li class="checkout__place__info__subtotal">
-                                <span>Subtotal</span>
-                                <span>${{purchaseOrder().totalPrice}}</span>
-                            </li>
-
-                            <li class="checkout__place__info__total">
-                                <span>Total</span>
-                                <span>${{purchaseOrder().totalPrice}}</span>
-                            </li>
-
-                        </ul>
-                    </div>
-
-                    <div>
-                        <a href="#" class="option checkout__place__btn w-100">Place Order</a>
-                    </div>
-
-                </div>
-            </div>
-
         </div>
     </div>
 </section>

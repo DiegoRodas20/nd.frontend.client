@@ -13,7 +13,7 @@ const routes: Routes = [
         data: {
             url: APP_ROUTES.CHECK_OUT,
             name: 'Check Out',
-            isActive: true
+            isActive: false
         }
     },
     {
