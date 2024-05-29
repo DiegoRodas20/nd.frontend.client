@@ -12,15 +12,21 @@
             </span>
         </div>
 
-        <div 
-            *ngIf="inputSearchFocused && products.length" 
-            class="header-search-results">
-            <ul>
-                <li *ngFor="let product of products" class="result-item">
-                    <i class="fa-sharp fa-regular fa-magnifying-glass"></i>
-                    <a [routerLink]="[ routeService.productDetailRoute, product.id ]" class="ms-2">{{ product.name}}</a>
-                </li>
-            </ul>
-        </div>
+        @if (inputSearchFocused && products.length) {
+            <div class="header-search-results">
+                <ul>
+                    @for (product of products; track product.id) {
+                        <li class="result-item">
+                            <i class="fa-sharp fa-regular fa-magnifying-glass"></i>
+                            <a
+                                [routerLink]="[ routeService.productDetailRoute(product.id) ]" 
+                                class="ms-2">
+                                {{ product.name}}
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
     </div>
 </div>
