@@ -17,17 +17,19 @@ export class GetProductsByNameQueryHandler implements GetProductsByNameQuery {
         const products = this._productRepository.getProducts()
         const productsFilter = this.searchProducts(productName, products)
 
-        return new Promise(resolve => {
-            resolve(productsFilter)
-        })
+        return Promise.resolve(productsFilter)
     }
 
     private searchProducts(searchTerm: string, products: Product[]): Product[] {
-        const productsFilter = products.filter(product => this.isSearchMatch(product.name, searchTerm))
+        const productsFilter = products
+            .filter(product => this.isSearchMatch(product.name, searchTerm))
+            .slice(0, 6)
+
         return productsFilter
     }
 
     private isSearchMatch(productName: string, searchTerm: string): boolean {
+
         const normalizedProductName = this.normalizedTerm(productName)
         const normalizedSearchTerm = this.normalizedTerm(searchTerm)
         const isMatch = normalizedProductName.includes(normalizedSearchTerm)
