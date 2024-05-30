@@ -203,17 +203,3 @@
         }
     }
 }
-
-.image-cart {
-    
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    visibility: hidden;
-    opacity: 0;
-
-    & img {
-        width: 100%;
-    }
-}
