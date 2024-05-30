@@ -29,7 +29,7 @@ export class ProductRepository implements IProductRepository {
         {
             id: 3,
             rating: 4,
-            images: ['https://m.media-amazon.com/images/I/71gR2xXpbvL.jpg'],
+            images: ['https://promart.vteximg.com.br/arquivos/ids/6826436-1000-1000/imageUrl_1.jpg?v=638144106758200000'],
             category: 'Category 3',
             description: 'Descripcion',
             name: 'Name 3',
