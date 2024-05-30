@@ -27,26 +27,27 @@
         </div>
 
     </div>
-
     <div class="product__content">
+        <div class="product__content-left">
 
-        <div class="product__tag">
-            <a href="#">{{ product.category }}</a>
+            <div class="product__tag">
+                <a href="#">{{ product.category }}</a>
+            </div>
+
+            <h3 class="product__title">
+                <a href="product-details.html">{{ product.name }}</a>
+            </h3>
+
         </div>
+        <div class="product__content-right">
+            <div class="product__rating">
+                <app-rating-star [rating]="product.rating"></app-rating-star>
+            </div>
 
-        <h3 class="product__title">
-            <a href="product-details.html">{{ product.name }}</a>
-        </h3>
-
-        <div class="product__rating">
-            <app-rating-star [rating]="product.rating"></app-rating-star>
+            <div class="product__price">
+                <span class="product__price product__price--new">${{ product.price }} </span>
+                <!-- <span class="product__price product__price--old">${{ product.priceAfter }}</span> -->
+            </div>
         </div>
-
-        <div class="product__price">
-            <span class="product__price product__price--new">${{ product.price }} </span>
-            <span class="product__price product__price--old">${{ product.priceAfter }}</span>
-        </div>
-
     </div>
-
 </div>

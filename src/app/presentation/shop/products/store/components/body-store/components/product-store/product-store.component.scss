@@ -25,7 +25,7 @@
         position: relative;
         overflow: hidden;
 
-        & img{
+        & img {
             @include transition();
             width: 100%;
         }
@@ -66,9 +66,10 @@
         border-radius: 50%;
         margin-bottom: 6px;
 
-        & i{
+        & i {
             @include transform(translateY(2px));
         }
+
         &:hover {
             color: var(--common-white);
             background-color: var(--common-black);
@@ -101,7 +102,7 @@
         opacity: 0;
         z-index: 1;
         @include transform(translateY(-50%));
-        @include transition-mul((opacity .3s ease,visibility .3s ease,transform .3s cubic-bezier(.71,1.7,.77,1.24),-webkit-transform .3s cubic-bezier(.71,1.7,.77,1.24)));
+        @include transition-mul((opacity .3s ease, visibility .3s ease, transform .3s cubic-bezier(.71, 1.7, .77, 1.24), -webkit-transform .3s cubic-bezier(.71, 1.7, .77, 1.24)));
         @include transition();
 
         &::before {
@@ -132,7 +133,17 @@
     }
 
     &__content {
-        padding-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+
+        &-right {
+            padding-top: 15px;
+        }
+
+        &-left {
+            padding-top: 15px;
+        }
     }
 
     &__tag a {
@@ -179,11 +190,8 @@
     }
 
     &__rating {
-        margin-right: 6px;
         display: flex;
         align-items: center;
-        margin-top: 4px;
-        margin-bottom: 4px;
     }
 
     &__price {
