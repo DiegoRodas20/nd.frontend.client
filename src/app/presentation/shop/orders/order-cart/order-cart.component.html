@@ -1,7 +1,9 @@
 <section class="order-cart">
     <div class="container">
 
-        <div *ngIf="products()?.length" class="row">
+        @if (products().length)
+        {
+        <div class="row">
 
             <div class="col-xl-9 col-lg-8">
                 <div class="order-cart__products">
@@ -58,7 +60,7 @@
                                         </button>
                                     </div>
                                 </td>
-                                
+
                                 <!-- Price -->
                                 <td class="order-cart__price">
                                     <span>${{ product.priceCart }}</span>
@@ -79,7 +81,7 @@
                     </div>
 
                     <div class="order-cart__checkout-shipping">
-                        
+
                         <h4 class="order-cart__checkout-shipping-title">Shipping</h4>
 
                         <div class="order-cart__checkout-shipping-option-wrapper">
@@ -108,9 +110,7 @@
                     </div>
 
                     <div>
-                        <a 
-                            [routerLink]="routeService.checkOutRoute" 
-                            class="option order-cart__checkout-btn w-100">
+                        <a [routerLink]="routeService.checkOutRoute" class="option order-cart__checkout-btn w-100">
                             Proceed to Checkout
                         </a>
                     </div>
@@ -119,10 +119,11 @@
             </div>
 
         </div>
+        }
 
-        <ng-container *ngIf="!products()?.length">
-            <app-product-empty [name]="'Shopping Cart'"></app-product-empty>
-        </ng-container>
-
+        @if (!products().length)
+        {
+        <app-product-empty [name]="'Shopping Cart'"></app-product-empty>
+        }
     </div>
 </section>
