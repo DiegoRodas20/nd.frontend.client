@@ -161,6 +161,10 @@ a {
     transition: all .3s 0s ease-out;
 }
 
+table {
+    min-width: 50rem;
+}
+
 .green-dark-bg {
     background-color: var(--green-dark);
 }

@@ -3,8 +3,9 @@
         <div class="row">
             <div class="col-xl-12">
 
-                <div *ngIf="productsWishlist().length" class="wishlist__products">
-                    
+                @if (productsWishlist().length)
+                {
+                <div class="wishlist__products">
                     <table [@slideTable] class="table">
                         <thead>
                             <tr>
@@ -65,18 +66,14 @@
                             </tr>
                         </tbody>
                     </table>
-
-                    <app-pagination 
-                        [items]="productsWishlist()"
-                        (displayedItems)="displayedProducts($event)">
-                    </app-pagination>
-
                 </div>
-
-                <ng-container *ngIf="!productsWishlist().length">
-                    <app-product-empty [name]="'Wishlist'"></app-product-empty>
-                </ng-container>
-
+                <app-pagination [items]="productsWishlist()" (displayedItems)="displayedProducts($event)">
+                </app-pagination>
+                }
+                @if (!productsWishlist().length)
+                {
+                <app-product-empty [name]="'Wishlist'"></app-product-empty>
+                }
             </div>
         </div>
     </div>
