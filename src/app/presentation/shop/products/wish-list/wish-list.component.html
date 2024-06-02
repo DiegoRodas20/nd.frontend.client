@@ -18,7 +18,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let product of paginatedProductsWishList">
+                            @for (product of paginatedProductsWishList; track product.id) {
+                            <tr>
 
                                 <!-- Delete product to wishlist -->
                                 <td>
@@ -64,6 +65,7 @@
                                 </td>
 
                             </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
