@@ -19,7 +19,8 @@
                         </thead>
 
                         <tbody>
-                            <tr [@slideFadeLeft] *ngFor="let product of products()">
+                            @for (product of products(); track product.id) {
+                            <tr [@slideFadeLeft]>
 
                                 <!-- Delete product to wishlist -->
                                 <td>
@@ -67,6 +68,7 @@
                                 </td>
 
                             </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
