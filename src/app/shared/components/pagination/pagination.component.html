@@ -8,13 +8,13 @@
                     </a>
                 </li>
 
-                <li *ngFor="let page of pages">
-                    <a 
-                        [class]="page == currentPage ? 'current' : ''" 
-                        (click)="paginateItems(page)">
+                @for (page of pages; track $index) {
+                <li>
+                    <a [class]="page == currentPage ? 'current' : ''" (click)="paginateItems(page)">
                         {{page}}
                     </a>
                 </li>
+                }
                 <li>
                     <a (click)="nextPage()">
                         <i class="fa-regular fa-chevron-right"></i>
