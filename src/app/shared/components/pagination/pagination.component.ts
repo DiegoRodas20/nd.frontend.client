@@ -13,7 +13,7 @@ export class PaginationComponent implements OnInit {
 
     pages: number[] = []
     currentPage: number = 1
-    itemsPerPage: number = 4
+    itemsPerPage: number = 8
 
     constructor() { }
 
