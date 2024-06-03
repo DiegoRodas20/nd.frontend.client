@@ -2,17 +2,19 @@
     <div class="container">
         <div class="row">
             <div class="col-xxl-12">
-
                 <div class="p-relative z-index-1">
                     <div class="breadcrumb__list">
-                        <span *ngFor="let value of breadCrumb; let last = last">
+                        @for (value of breadCrumb; track $index; let last = $last){
+                        <span>
                             <a class="align-middle" [routerLink]="value.url">{{value.name}}</a>
-                            <i *ngIf="!last" class="px-2 align-middle fa-sharp fa-regular fa-angle-right"></i>
+                            @if (!last) {
+                            <i class="px-2 align-middle fa-sharp fa-regular fa-angle-right"></i>
+                            }
                         </span>
+                        }
                     </div>
                     <h3 class="breadcrumb__title">{{breadCrumb[breadCrumb.length - 1].name}}</h3>
                 </div>
-
             </div>
         </div>
     </div>
