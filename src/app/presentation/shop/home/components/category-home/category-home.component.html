@@ -2,7 +2,8 @@
     <div class="container">
         <div class="row row-cols-xl-5 row-cols-lg-5 row-cols-md-4">
 
-            <div *ngFor="let category of categories" class="col">
+            @for (category of categories; track category.id) {
+            <div class="col">
                 <div class="product-category__item">
 
                     <div class="product-category__thumb">
@@ -20,7 +21,7 @@
 
                 </div>
             </div>
-
+            }
         </div>
     </div>
 </section>
