@@ -1,7 +1,7 @@
 <div class="rating">
     <span class="rating__star">
-        <i 
-            *ngFor="let star of stars; let i = index" 
-            [ngClass]="[i < rating ? 'fas' : 'fal', 'fa-star']" ></i>
+        @for (star of stars; track $index){
+        <i [ngClass]="[$index < rating ? 'fas' : 'fal', 'fa-star']"></i>
+        }
     </span>
 </div>
