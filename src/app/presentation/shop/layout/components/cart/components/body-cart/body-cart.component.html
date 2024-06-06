@@ -1,12 +1,16 @@
-<div *ngIf="productsCart()?.length " class="cartmini-body">
+@if (productsCart().length) {
+<div class="cartmini-body">
     <ul>
-        <li *ngFor="let product of productsCart()" [@slideFadeLeft]>
+        @for (product of productsCart(); track product.id) {
+        <li [@slideFadeLeft]>
             <app-product-cart [productCart]="product">
             </app-product-cart>
         </li>
+        }
     </ul>
 </div>
+}
 
-<ng-container *ngIf="!productsCart()?.length">
-    <app-product-empty [name]="'Cart'"></app-product-empty>
-</ng-container>
+@if (!productsCart().length) {
+<app-product-empty [name]="'Cart'"></app-product-empty>
+}
